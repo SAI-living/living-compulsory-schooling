@@ -1,0 +1,18 @@
+{
+  "claim_id": "C4",
+  "status": "partial",
+  "structured": {
+    "observed_behavior": "For the 1980 Census men born 1930-1949 (the only cohorts in the shipped extract), mean completed education by (year-of-birth, quarter-of-birth) shows a recurring first-quarter dip: Q1 has the lowest mean education within its birth year in ~14 of 20 years and lies below the surrounding-quarter MA(+2,-2) prediction in 18 of 19 birth-years (fig4_q1_below_ma: 18/19). Examples: YOB30 Q1=12.280 vs Q2-Q4 12.428/12.492/12.625; YOB40 Q1=13.019 vs 13.056/13.159/13.266; YOB46 Q1=13.617 vs 13.689/13.788/13.860. Q4-of-a-year exceeds the following year's Q1 in nearly every case. The only clear violation is YOB49, where Q1=13.778 is the highest quarter. All examined cohorts (1930-1949) have RISING secular education; the declining-secular cohorts (1950-1959) are absent from the extract and could not be examined.",
+    "claim_paraphrase": "In virtually all birth cohorts, first-quarter-born men have slightly lower average completed education than men born later in the year, and this seasonal dip holds for cohorts with both rising and declining secular education levels.",
+    "semantic_match": false
+  },
+  "rationale": "The primary described behavior is unambiguously reproduced: in outputs/figures.json (fig1_2_mean_educ_by_yob_qob) the first-quarter mean education is the lowest or near-lowest quarter in virtually every examined birth year (e.g. YOB30 Q1=12.280 < 12.428/12.492/12.625; YOB40 Q1=13.019 < 13.056/13.159/13.266; YOB46 Q1=13.617 < 13.689/13.788/13.860), and the detrended series records the Q1 mean below the MA(+2,-2) prediction in 18 of 19 birth-years (fig4_q1_below_ma = {count:18,total:19}); the figure1_2_education.png visibly shows the black 'Q1' line sitting at the bottom of each year's cluster. Only YOB49 reverses the pattern (Q1 highest). This fully supports the 'Q1 has lower average education than later-quarter births across cohorts' portion of the claim. However, the claim also asserts the pattern holds 'for cohorts with both rising and declining secular education levels' and the paper_value references cohorts 1930-1959; the shipped NEW7080 extract spans only birth years 1930-1949 (all rising-secular cohorts), and the plan/step-7 log explicitly flag that the 1950-1959 declining-secular panels are NOT reproducible from this data (figures.json 'note'; step 7 notes 'LIMITATION ... 1950-1959 ... NOT reproducible'). Thus the rising-cohort half of the two-regime sub-claim is strongly confirmed while the declining-cohort half cannot be demonstrated (not contradicted, merely absent), making this a partial rather than full match. The only code change (fix_severity.json) is a Stata->R port rated 'major' with no methodological defect, so it does not undermine the produced cell means.",
+  "evidence_refs": [
+    "output/replication/codebase/outputs/figures.json",
+    "output/replication/codebase/outputs/figure1_2_education.png",
+    "output/replication/replication_log.json",
+    "output/analyze/replication_plan.json",
+    "output/assess/fix_severity.json"
+  ],
+  "graded_by": "agent"
+}

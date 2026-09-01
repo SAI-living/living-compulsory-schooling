@@ -1,0 +1,614 @@
+{
+  "paper": {
+    "title": "Does Compulsory School Attendance Affect Schooling and Earnings?",
+    "arxiv_id": null,
+    "year": 1991,
+    "authors": [
+      "Angrist",
+      "Krueger"
+    ]
+  },
+  "claims": [
+    {
+      "id": "C1",
+      "description": "The instrumental-variables (TSLS/Wald) estimate of the monetary return to an additional year of schooling for men compelled to attend school by compulsory-schooling laws is about 7.5 percent, which is hardly different from the OLS estimate of the return to education for all male workers.",
+      "type": "scalar",
+      "tier": "headline",
+      "verification": "This is the paper's central quantitative result. Locate the estimated return to education (coefficient on years of education / EDUC) from the instrumental-variables specifications produced by the replication of Tables III, IV, and V (e.g. the TSLS coefficient in the output of 'QOB Table IV.do' col 2 \u2248 0.077 and 'QOB Table V.do'; and the Wald estimates 0.072 / 0.102 in Table III). Confirm the IV/TSLS return sits around 0.07-0.10 (roughly 7.5 percent) and that it is close in magnitude to the OLS return (~0.07-0.08) from the same specifications. Judge the headline as supported if the reproduced IV estimate of the return to schooling is in the neighborhood of 7-8 percent and not markedly different from OLS.",
+      "paper_value": {
+        "TSLS_return": 0.075,
+        "OLS_return": 0.08
+      },
+      "units": "fraction (log-wage return per year of schooling)",
+      "provenance": {
+        "section": "Abstract / Introduction",
+        "page": 981,
+        "quote": "The estimated monetary return to an additional year of schooling for those who are compelled to attend school by compulsory schooling laws is about 7.5 percent, which is hardly different from the ordinary-least-squares (OLS) estimate of the return to education for all male workers."
+      },
+      "notes": "The '7.5 percent' figure is a summary; individual table cells (Table IV col 2 = 0.0769, Table III Panel A Wald = 0.0715) give the precise values."
+    },
+    {
+      "id": "C2",
+      "description": "TSLS estimates of the return to education using quarter of birth as an instrument are close to the OLS estimates, and the difference between them is generally not statistically significant, suggesting little omitted-variables bias in conventional OLS estimates (if anything OLS is biased slightly downward).",
+      "type": "qualitative",
+      "tier": "headline",
+      "verification": "Compare the OLS and TSLS coefficients on years of education (EDUC) across the reproduced specifications of Tables IV, V, VI, and VII (each table pairs OLS columns with TSLS columns for the same regressors). Check that within each matched pair the TSLS estimate is close in magnitude to the OLS estimate and that the difference is within (or comparable to) the TSLS standard error, i.e. not statistically significant. A supported result shows TSLS and OLS returns of similar magnitude, with several TSLS estimates equal to or slightly above OLS.",
+      "paper_value": "IV/TSLS return \u2248 OLS return; differences not statistically significant; OLS if anything biased slightly downward",
+      "provenance": {
+        "section": "Introduction / Conclusion",
+        "page": 981,
+        "quote": "The instrumental variables estimate of the return to education is close to the ordinary least squares estimate, suggesting that there is little bias in conventional estimates."
+      },
+      "notes": "Applies across Tables IV-VIII; the TSLS SEs are large so most differences are insignificant."
+    },
+    {
+      "id": "C3",
+      "description": "Compulsory schooling laws keep a nontrivial fraction of potential dropouts in school: in 1960 the laws kept approximately one third of potential dropouts in school, falling to roughly 10 percent by 1980.",
+      "type": "scalar_range",
+      "tier": "headline",
+      "verification": "Derived from the Table II difference-in-differences enrollment estimates combined with dropout rates (12 percent of 16-year-olds dropped out in 1960 where permitted vs a ~4 pp DiD enrollment effect; 5 percent in 1980). Check the reproduced Table II enrollment DiD estimates (col (1)-(2)) for 1960/1970/1980 and confirm the implied fraction of potential dropouts kept in school declines from about one third (1960) toward about 10 percent (1980).",
+      "paper_value": {
+        "1960": 0.33,
+        "1980": 0.1
+      },
+      "units": "fraction of potential dropouts kept in school",
+      "provenance": {
+        "section": "I.A Direct Evidence on the Effect of Compulsory Schooling Laws",
+        "page": 992,
+        "quote": "our estimates imply that in 1960 compulsory attendance laws kept approximately one third of potential dropouts in school ... our estimates imply that compulsory schooling laws kept roughly 10 percent of potential dropouts in school in that year."
+      },
+      "notes": "The abstract rounds this as 'Roughly 25 percent of potential dropouts remain in school because of compulsory schooling laws.' Treat as a range/order-of-magnitude claim."
+    },
+    {
+      "id": "C4",
+      "description": "In virtually all birth cohorts examined, men born in the first quarter of the year have a slightly lower average level of completed education than men born later in the year; the seasonal pattern in education is present for cohorts with both rising and declining secular education levels.",
+      "type": "qualitative",
+      "tier": "supporting",
+      "verification": "Reproduce mean years of completed education by year-of-birth and quarter-of-birth from the 1980 Census extract (men born 1930-1959), as in Figures I-III. Inspect the produced figure/table and confirm that within most birth years, first-quarter births show a small negative deviation (lower average education) relative to surrounding quarters, especially the fourth quarter of the same year and third/fourth quarters of the preceding year.",
+      "paper_value": "Q1 births have lower average years of education than later-quarter births across cohorts 1930-1959",
+      "expected_output_file": "output/replication/figure1_education_by_qob.pdf",
+      "provenance": {
+        "section": "I. Season of Birth, Compulsory Schooling, and Years of Education",
+        "page": 984,
+        "quote": "Average education is generally higher for individuals born near the end of the year than for individuals born early in the year."
+      },
+      "notes": "Figures I-III (1980 Census, 5% sample). Fourth-quarter births tend to have more education than the following year's first-quarter births."
+    },
+    {
+      "id": "C5",
+      "description": "After removing the moving-average trend, the average number of completed years of schooling is about one tenth of a year (0.1) lower for men born in the first quarter of the year than for men born in the last quarter, for both the 1930-1939 and 1940-1949 cohorts.",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "From the reproduction of Table I (detrended regression of years of education on quarter-of-birth dummies, dependent variable purged of the MA(+2,-2) trend), read the quarter-1 main effect (relative to quarter 4) for the 1930-1939 cohort (paper: -0.124, se 0.017) and the 1940-1949 cohort (paper: -0.085, se 0.012). Confirm both are negative and about one tenth of a year in magnitude.",
+      "paper_value": {
+        "1930-1939": -0.124,
+        "1940-1949": -0.085
+      },
+      "units": "years of completed education (Q1 effect relative to Q4)",
+      "provenance": {
+        "section": "I. Table I discussion",
+        "page": 988,
+        "quote": "For both cohorts the average number of completed years of schooling is about one tenth of a year lower for men born in the first quarter of the year than for men born in the last quarter of the year."
+      },
+      "notes": "Table I row 'Total years of education'. F-tests: 24.9 (1930s) and 18.6 (1940s), P<0.0001."
+    },
+    {
+      "id": "C6",
+      "description": "Quarter-of-birth effects on educational outcomes (Table I): detrended regressions of years of education, high school graduation, and post-secondary outcomes on quarter-of-birth dummies (relative to quarter 4) for the 1930-1939 and 1940-1949 cohorts.",
+      "type": "table",
+      "tier": "supporting",
+      "verification": "Reproduce Table I by regressing each detrended educational outcome (years of education, high school graduate, college graduate) on quarter-of-birth dummies for the 1930-1939 and 1940-1949 cohorts, using the 1980 Census 5% sample (N=312,718 for 1930-39; 457,181 for 1940-49). Compare the estimated Q1, Q2, Q3 main effects (relative to Q4) and the F-statistic to the tabulated values. Confirm negative Q1 effects for years-of-education and high-school-graduate rows, and small/insignificant effects for college graduation.",
+      "paper_value": {
+        "columns": [
+          "Q1 effect",
+          "Q2 effect",
+          "Q3 effect",
+          "F-test"
+        ],
+        "rows": [
+          {
+            "label": "Total years of education, 1930-1939 (mean 12.79)",
+            "values": [
+              -0.124,
+              -0.086,
+              -0.015,
+              24.9
+            ]
+          },
+          {
+            "label": "Total years of education, 1940-1949 (mean 13.56)",
+            "values": [
+              -0.085,
+              -0.035,
+              -0.017,
+              18.6
+            ]
+          },
+          {
+            "label": "High school graduate, 1930-1939 (mean 0.77)",
+            "values": [
+              -0.019,
+              -0.02,
+              -0.004,
+              46.4
+            ]
+          },
+          {
+            "label": "High school graduate, 1940-1949 (mean 0.86)",
+            "values": [
+              -0.015,
+              -0.012,
+              -0.002,
+              54.4
+            ]
+          },
+          {
+            "label": "College graduate, 1930-1939 (mean 0.24)",
+            "values": [
+              -0.005,
+              0.003,
+              0.002,
+              5.0
+            ]
+          },
+          {
+            "label": "College graduate, 1940-1949 (mean 0.30)",
+            "values": [
+              -0.003,
+              0.004,
+              0.0,
+              5.0
+            ]
+          }
+        ]
+      },
+      "expected_output_file": "output/replication/table1.csv",
+      "provenance": {
+        "section": "I. Table I",
+        "page": 987,
+        "quote": "TABLE I THE EFFECT OF QUARTER OF BIRTH ON VARIOUS EDUCATIONAL OUTCOME VARIABLES"
+      },
+      "notes": "Standard errors in the paper's parentheses. The MA(+2,-2) two-sided moving-average trend is subtracted from each dependent variable before regression."
+    },
+    {
+      "id": "C7",
+      "description": "First-quarter births are less likely to graduate high school than fourth-quarter births by 1.9 percentage points (1930s cohort) and 1.5 percentage points (1940s cohort); given high-school dropout rates of 23 percent (1930s) and 14 percent (1940s), first-quarter births are roughly 10 percent more likely to drop out.",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "From the reproduced Table I high-school-graduate rows, read the Q1 main effect: paper reports -0.019 (1930s) and -0.015 (1940s), i.e. 1.9 and 1.5 percentage points. Confirm magnitudes. The '~10 percent more likely to drop out' is derived by dividing the graduation gap by the dropout rate (0.019/0.23 \u2248 0.083; 0.015/0.14 \u2248 0.107).",
+      "paper_value": {
+        "HS_grad_gap_1930s_pp": 1.9,
+        "HS_grad_gap_1940s_pp": 1.5,
+        "relative_dropout_increase": 0.1
+      },
+      "units": "percentage points (HS graduation gap); fraction (relative dropout increase)",
+      "provenance": {
+        "section": "I. Table I discussion",
+        "page": 988,
+        "quote": "men born in the first quarter of the year are 1.9 percentage points less likely to graduate from high school than men born in the last quarter of the year ... first quarter births are roughly 10 percent more likely to drop out of high school than fourth quarter births."
+      },
+      "notes": "Linear probability model (quarter dummies mutually exclusive)."
+    },
+    {
+      "id": "C8",
+      "description": "The seasonal (quarter-of-birth) pattern in education is not evident in college graduation rates, graduate school completion, master's degrees, or doctoral degrees\u2014i.e. it is absent for post-secondary educational outcomes not constrained by compulsory schooling.",
+      "type": "qualitative",
+      "tier": "supporting",
+      "verification": "From the reproduced Table I post-secondary rows (college graduate, completed master's, completed doctoral), confirm that the Q1/Q2/Q3 quarter-of-birth main effects are small and lack the systematic negative-Q1 pattern seen for total years of education and high school graduation (several are near zero or statistically insignificant, e.g. master's F-test P=0.1599 for 1930s). A supported result shows no clear seasonal pattern for post-high-school outcomes.",
+      "paper_value": "No discernible quarter-of-birth pattern in college graduation, master's, or doctoral degree completion",
+      "provenance": {
+        "section": "I. Table I discussion",
+        "page": 989,
+        "quote": "These results show no discernible pattern in educational achievement by season of birth. Because individuals with higher degrees did not discontinue their education as soon as they were legally permitted, these findings provide further support for the view that compulsory schooling is responsible for the seasonal pattern in education."
+      },
+      "notes": "This is the paper's key falsification check for the compulsory-schooling mechanism."
+    },
+    {
+      "id": "C9",
+      "description": "Table II difference-in-differences enrollment estimates: compulsory attendance laws increased the school enrollment rate by about 4 percentage points for the 1944 cohort (1960 Census), 2 percentage points for the 1954 cohort (1970 Census), and 0.5 percentage points for the 1964 cohort (1980 Census).",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "Reproduce Table II using the 1960 (1% sample), 1970 (two 1% state samples), and 1980 (5% sample) Census data for 16-year-olds. Compute the difference-in-differences: (within-state enrollment decline age16-vs-15 in age-16-leaving states) minus (same in age-17/18 states). Confirm the DiD (Table II column (1)-(2), row 3/6/9) is about 4.0 pp (1944/1960), 2.0 pp (1954/1970), and 0.5 pp (1964/1980), showing a declining effect over time.",
+      "paper_value": {
+        "1944_cohort_1960": 4.0,
+        "1954_cohort_1970": 2.0,
+        "1964_cohort_1980": 0.5
+      },
+      "units": "percentage points (enrollment DiD)",
+      "provenance": {
+        "section": "I.A Direct Evidence",
+        "page": 992,
+        "quote": "The difference-in-differences estimates of the enrollment effect of compulsory schooling for the 1954 and 1964 cohorts are 2 and 0.5 percentage points."
+      },
+      "notes": "Table II row 3 col(3)=-4.0(1.2); row 6=-2.0(0.6); row 9=0.5(0.3). In 1960 enrollment was 4.5 pp lower at age 16 in age-16-leaving states vs 0.6 pp (insignificant) in age-17/18 states."
+    },
+    {
+      "id": "C10",
+      "description": "Boys born in the first quarter of the year enter first grade at an older average age (6.45 years) than boys born in the fourth quarter (6.07 years), based on the 1960 Census tabulation for boys born in 1952 (second quarter 6.28, third quarter 6.08).",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "This uses the 1960 Census (earliest with quarter of birth) tabulation of average first-grade entry age by quarter of birth for boys born in 1952. If the replication reconstructs this tabulation, confirm the average entry age declines monotonically across quarters (Q1\u22486.45 > Q2\u22486.28 > Q3\u22486.08 \u2248 Q4\u22486.07), demonstrating that early-year births start school at an older age.",
+      "paper_value": {
+        "Q1": 6.45,
+        "Q2": 6.28,
+        "Q3": 6.08,
+        "Q4": 6.07
+      },
+      "units": "years (age at first-grade entry)",
+      "provenance": {
+        "section": "I. Season of Birth",
+        "page": 982,
+        "quote": "boys born in the first quarter of the year enter first grade when they are 6.45 years old, whereas boys born in the fourth quarter of the year enter first grade when they are 6.07 years old."
+      },
+      "notes": "Requires the 1960 Census; may not be part of the core replication data (which is 1970/1980). Treat as supporting."
+    },
+    {
+      "id": "C11",
+      "description": "Wald estimate of the return to education, 1970 Census, men born 1920-1929 (Table III Panel A): first-quarter men earned a 0.7 percent lower weekly wage (difference -0.00898) and completed 0.126 fewer years of education than men born in the last three quarters; the Wald return is 0.072, close to the OLS return of 0.080.",
+      "type": "table",
+      "tier": "supporting",
+      "verification": "Reproduce Table III Panel A using the 1970 Census extract (men born 1920-1929, N=247,199). Compute mean ln(weekly wage) and mean education for Q1 births vs Q2-Q4 births, their differences, the Wald ratio (wage diff / education diff \u2248 0.0715), and the bivariate OLS return (\u22480.0801). Confirm the Wald estimate (~0.072) is slightly below but close to the OLS estimate (~0.080).",
+      "paper_value": {
+        "columns": [
+          "Q1",
+          "Q2-Q4",
+          "Difference (Q1-rest)"
+        ],
+        "rows": [
+          {
+            "label": "ln(weekly wage)",
+            "values": [
+              5.1484,
+              5.1574,
+              -0.00898
+            ]
+          },
+          {
+            "label": "Education (years)",
+            "values": [
+              11.3996,
+              11.5252,
+              -0.1256
+            ]
+          },
+          {
+            "label": "Wald est. of return to education",
+            "values": [
+              null,
+              null,
+              0.0715
+            ]
+          },
+          {
+            "label": "OLS return to education",
+            "values": [
+              null,
+              null,
+              0.0801
+            ]
+          }
+        ]
+      },
+      "expected_output_file": "output/replication/table3_panelA.csv",
+      "provenance": {
+        "section": "II. Table III Panel A",
+        "page": 996,
+        "quote": "In 1970, for example, men born in the first quarter of the year earned a 0.7 percent lower weekly wage and had completed 0.126 fewer years of education than men born in the last three quarters of the year. The ratio of these two numbers, 0.072, is a consistent estimate of the return to education."
+      },
+      "notes": "Wald = difference in log wage / difference in years of education."
+    },
+    {
+      "id": "C12",
+      "description": "Wald estimate of the return to education, 1980 Census, men born 1930-1939 (Table III Panel B): the Wald return is 0.102, greater than the OLS return of 0.070; the difference is not statistically significant.",
+      "type": "table",
+      "tier": "supporting",
+      "verification": "Reproduce Table III Panel B using the 1980 Census extract (men born 1930-1939, N=327,509). Compute mean ln(weekly wage) and mean education for Q1 vs Q2-Q4, the Wald ratio (\u22480.102), and the OLS return (\u22480.0709). Confirm the Wald estimate is around 0.10 and exceeds the OLS estimate, but within sampling variability. This is the same 1980 census extract as in asciiqob.txt in the repository.",
+      "paper_value": {
+        "columns": [
+          "Q1",
+          "Q2-Q4",
+          "Difference (Q1-rest)"
+        ],
+        "rows": [
+          {
+            "label": "ln(weekly wage)",
+            "values": [
+              5.8916,
+              5.9027,
+              -0.0111
+            ]
+          },
+          {
+            "label": "Education (years)",
+            "values": [
+              12.6881,
+              12.7969,
+              -0.1088
+            ]
+          },
+          {
+            "label": "Wald est. of return to education",
+            "values": [
+              null,
+              null,
+              0.102
+            ]
+          },
+          {
+            "label": "OLS return to education",
+            "values": [
+              null,
+              null,
+              0.0709
+            ]
+          }
+        ]
+      },
+      "expected_output_file": "output/replication/table3_panelB.csv",
+      "provenance": {
+        "section": "II. Table III Panel B",
+        "page": 997,
+        "quote": "the Wald estimate of the return to education, 0.102, is greater than the estimate from an OLS regression, 0.070. But again, the difference between the Wald and OLS estimates of the return to education is not statistically significant."
+      },
+      "notes": "The repo's asciiqob.txt (329,509 obs, men born 1930-39, 1980 Census) is the extract for this population."
+    },
+    {
+      "id": "C13",
+      "description": "OLS and TSLS estimates of the return to education for men born 1920-1929, 1970 Census (Table IV): the coefficient on years of education across eight specifications; e.g. column 1 OLS = 0.080 (t=200.5) and column 2 TSLS = 0.077 (t=5.1), with TSLS and OLS close and never significantly different.",
+      "type": "table",
+      "tier": "supporting",
+      "verification": "Reproduce Table IV by running the OLS and TSLS (ivregress 2sls) regressions in 'QOB Table IV.do' on the 1970 Census extract (men born 1920-1929, N=247,199). The instruments are quarter-of-birth x year-of-birth interactions. Compare the coefficient on EDUC (years of education) across the eight columns to the paper values [0.0802, 0.0769, 0.0802, 0.1310, 0.0701, 0.0669, 0.0701, 0.1007]. Columns 1-2 (year-of-birth dummies only), 3-4 (add quadratic age), 5-6 (add covariates), 7-8 (covariates + quadratic age). Confirm OLS \u2248 0.07-0.08 and TSLS close in the specifications without quadratic age.",
+      "paper_value": {
+        "columns": [
+          "(1) OLS",
+          "(2) TSLS",
+          "(3) OLS",
+          "(4) TSLS",
+          "(5) OLS",
+          "(6) TSLS",
+          "(7) OLS",
+          "(8) TSLS"
+        ],
+        "rows": [
+          {
+            "label": "Years of education (return)",
+            "values": [
+              0.0802,
+              0.0769,
+              0.0802,
+              0.131,
+              0.0701,
+              0.0669,
+              0.0701,
+              0.1007
+            ]
+          }
+        ]
+      },
+      "expected_output_file": "output/replication/table4.csv",
+      "provenance": {
+        "section": "II.A TSLS Estimates, Table IV",
+        "page": 999,
+        "quote": "the OLS estimate of the return to education for 40-49 year-old men in the 1970 Census is 0.080 ... the return to education is 0.077 (with a t-ratio of 5.1)."
+      },
+      "notes": "The .do file 'QOB Table IV.do' in the repo directly implements this. Standard errors and chi-squared overidentification statistics are also tabulated."
+    },
+    {
+      "id": "C14",
+      "description": "OLS and TSLS estimates of the return to education for men born 1930-1939, 1980 Census (Table V): the coefficient on years of education across eight specifications; e.g. columns 7-8 give OLS = 0.063 (t=210.7) and TSLS = 0.060 (t=2).",
+      "type": "table",
+      "tier": "supporting",
+      "verification": "Reproduce Table V by running the OLS and TSLS regressions in 'QOB Table V.do' on the 1980 Census extract (men born 1930-1939, N=329,509). Compare the EDUC coefficient across the eight columns to paper values [0.0711, 0.0891, 0.0711, 0.0760, 0.0632, 0.0806, 0.0632, 0.0600]. Confirm the OLS return is ~0.063-0.071 and TSLS estimates are similar in magnitude (0.060-0.089).",
+      "paper_value": {
+        "columns": [
+          "(1) OLS",
+          "(2) TSLS",
+          "(3) OLS",
+          "(4) TSLS",
+          "(5) OLS",
+          "(6) TSLS",
+          "(7) OLS",
+          "(8) TSLS"
+        ],
+        "rows": [
+          {
+            "label": "Years of education (return)",
+            "values": [
+              0.0711,
+              0.0891,
+              0.0711,
+              0.076,
+              0.0632,
+              0.0806,
+              0.0632,
+              0.06
+            ]
+          }
+        ]
+      },
+      "expected_output_file": "output/replication/table5.csv",
+      "provenance": {
+        "section": "II.A TSLS Estimates, Table V",
+        "page": 998,
+        "quote": "comparing the OLS and TSLS models in columns (7) and (8)\u2014which include quadratic age and several covariates\u2014the OLS estimate of the return to education is 0.063 (with a t-ratio of 210.7), and the TSLS estimate of the return to education is 0.060 (with a t-ratio of 2)."
+      },
+      "notes": "Implemented by 'QOB Table V.do'. This is the same 1980 census men-born-1930-39 population as the repo's asciiqob.txt."
+    },
+    {
+      "id": "C15",
+      "description": "OLS and TSLS estimates of the return to education for 30-39-year-old men born 1940-1949, 1980 Census (Table VI): the coefficient on years of education across eight specifications; simple Wald/TSLS without age controls is biased downward but TSLS with quadratic age is positive and significant.",
+      "type": "table",
+      "tier": "supporting",
+      "verification": "Reproduce Table VI by running the OLS and TSLS regressions in 'QOB Table VI.do' on the 1980 Census extract (men born 1940-1949, 30-39 year olds, N=486,926). Compare the EDUC coefficient across eight columns to paper values [0.0573, 0.0553, 0.0573, 0.0948, 0.0520, 0.0393, 0.0521, 0.0779]. Confirm OLS ~0.052-0.057; TSLS specifications with quadratic age (cols 4, 8) are higher (~0.078-0.095).",
+      "paper_value": {
+        "columns": [
+          "(1) OLS",
+          "(2) TSLS",
+          "(3) OLS",
+          "(4) TSLS",
+          "(5) OLS",
+          "(6) TSLS",
+          "(7) OLS",
+          "(8) TSLS"
+        ],
+        "rows": [
+          {
+            "label": "Years of education (return)",
+            "values": [
+              0.0573,
+              0.0553,
+              0.0573,
+              0.0948,
+              0.052,
+              0.0393,
+              0.0521,
+              0.0779
+            ]
+          }
+        ]
+      },
+      "expected_output_file": "output/replication/table6.csv",
+      "provenance": {
+        "section": "II.A TSLS Estimates, Table VI",
+        "page": 1002,
+        "quote": "the TSLS estimate of the return to education is positive and statistically significant. Furthermore, in each of the four specifications the return to education estimated by TSLS is statistically indistinguishable from the return estimated by OLS. Including age and age-squared to control for within-year-of-birth earnings trends leads to an even higher TSLS estimate."
+      },
+      "notes": "Implemented by 'QOB Table VI.do'. For this younger cohort the simple Wald is downward-biased due to the upward-sloping age-earnings profile."
+    },
+    {
+      "id": "C16",
+      "description": "Allowing the seasonal pattern in education to vary by state of birth (Table VII, 1980 Census, men 1930-1939) reduces TSLS standard errors by about 40 percent; e.g. the TSLS return in column 6 is 0.083 (se 0.010), nearly 30 percent greater than the OLS estimate of 0.063 (se 0.0003).",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "Reproduce Table VII using the 1980 Census extract (men born 1930-1939) with instruments being quarter-of-birth interacted with 50 state-of-birth dummies plus quarter-of-birth x year-of-birth dummies, and 50 state-of-birth dummies in the wage equation (data in NEW7080.dta). Confirm the column-6 TSLS return on EDUC \u2248 0.083 (se \u2248 0.010) exceeds the OLS \u2248 0.063 (se \u2248 0.0003), and that TSLS standard errors are roughly 40 percent smaller than the corresponding Table V estimates.",
+      "paper_value": {
+        "TSLS_col6": 0.083,
+        "TSLS_col6_se": 0.01,
+        "OLS_col5": 0.063,
+        "OLS_col5_se": 0.0003,
+        "se_reduction": 0.4
+      },
+      "units": "fraction (return to education); fraction (SE reduction)",
+      "provenance": {
+        "section": "II.B Allowing the Seasonal Pattern to Vary by State of Birth",
+        "page": 1004,
+        "quote": "the TSLS estimate in column (6) of Table VII is 0.083 with a standard error of 0.010, and the OLS estimate is 0.063 with a standard error of 0.0003: the TSLS estimate is nearly 30 percent greater than the OLS estimate."
+      },
+      "notes": "Requires state-of-birth (POB) variable; the repo's NEW7080.dta contains full covariates. Column 8 TSLS = 0.0811."
+    },
+    {
+      "id": "C17",
+      "description": "For black men born 1930-1939 (Table VIII, 1980 Census), both the OLS and TSLS estimates of the return to education are lower than for the entire male population, and the TSLS estimates are within sampling variance of (and slightly less than) the OLS estimates.",
+      "type": "qualitative",
+      "tier": "supporting",
+      "verification": "Reproduce Table VIII using the 1980 Census sample restricted to black men born 1930-1939 (N=26,913), with quarter-of-birth x year-of-birth and quarter-of-birth x state-of-birth interactions as instruments. Confirm the EDUC coefficients (OLS ~0.057-0.067, TSLS ~0.039-0.064 across columns) are lower than the corresponding all-men estimates in Tables V/VII, and that TSLS is close to but slightly below OLS.",
+      "paper_value": "Return to education for black men is lower than for all men; TSLS \u2248 OLS and slightly below it (e.g. OLS ~0.067, TSLS ~0.064 in col 1-2)",
+      "expected_output_file": "output/replication/table8.csv",
+      "provenance": {
+        "section": "II.C Estimates for Black Men",
+        "page": 1005,
+        "quote": "Both the OLS and TSLS estimates indicate that the return to education is lower for black men than for the entire male population ... Unlike the estimates for the entire sample, however, the TSLS estimates are slightly less than the OLS estimates."
+      },
+      "notes": "Table VIII cols: (1) OLS 0.0672, (2) TSLS 0.0635, (5) OLS 0.0576, (6) TSLS 0.0461, (7) OLS 0.0576, (8) TSLS 0.0391."
+    },
+    {
+      "id": "C18",
+      "description": "The main impact of compulsory schooling is on the log weekly wage, not on weeks worked: when log weeks worked is the dependent variable, the TSLS estimate is 0.016 (se 0.008), within sampling variance of the OLS estimate of 0.008 (se 0.0002).",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "Re-run the column-6 specification of the analysis (1980 Census men 1930-1939, quarter-of-birth x state and x year instruments) using log of weeks worked as the dependent variable instead of log weekly wage. Confirm the TSLS coefficient on EDUC \u2248 0.016 (se \u2248 0.008) and OLS \u2248 0.008 (se \u2248 0.0002), i.e. the effect on weeks worked is small relative to the effect on the weekly wage.",
+      "paper_value": {
+        "TSLS_log_weeks": 0.016,
+        "TSLS_se": 0.008,
+        "OLS_log_weeks": 0.008,
+        "OLS_se": 0.0002
+      },
+      "units": "fraction (return per year of education, log weeks worked)",
+      "provenance": {
+        "section": "II.A TSLS Estimates",
+        "page": 1002,
+        "quote": "when the log of weeks worked is used as the dependent variable in column (6) of Table VII instead of the log weekly wage, the TSLS estimate is 0.016 with a standard error of 0.008. This is within sampling variance of the OLS estimate, which is 0.008 with a standard error of 0.0002."
+      },
+      "notes": "Demonstrates the schooling effect operates mainly through wage rates rather than labor supply."
+    },
+    {
+      "id": "C19",
+      "description": "The OLS return to education is similar for men with restricted education ranges: for men born 1930-1939 with nine to twelve years of schooling the OLS return is 0.059, compared with 0.063 for the full sample.",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "Using the 1980 Census extract for men born 1930-1939 with the column-5 specification of Table V, restrict the sample to men with 9-12 years of schooling and re-estimate OLS. Confirm the return \u2248 0.059, close to the full-sample 0.063, indicating little nonlinearity in the return to education around the compulsory-schooling range.",
+      "paper_value": {
+        "nine_to_twelve_years": 0.059,
+        "full_sample": 0.063
+      },
+      "units": "fraction (OLS return to education)",
+      "provenance": {
+        "section": "II.B",
+        "page": 1005,
+        "quote": "the OLS estimate of the return to education for men born 1930-1939 with nine to twelve years of education is 0.059, compared with 0.063 for the full sample in column (5) of Table V."
+      },
+      "notes": "Supports linearity/representativeness of the estimated return."
+    },
+    {
+      "id": "C20",
+      "description": "Quarter of birth has no effect on the earnings of college graduates (a subsample whose schooling was not prolonged by compulsory attendance): an F-test of joint significance of quarter-of-birth dummies in an earnings regression is not rejected (e.g. not rejected at the 25 percent level for 40-49-year-old college graduates in the 1970 Census).",
+      "type": "qualitative",
+      "tier": "supporting",
+      "verification": "Restrict the sample to college graduates (40-49-year-old men, 1970 and 1980 Censuses) and regress log earnings on quarter-of-birth dummies plus year-of-birth dummies. Confirm the F-test for joint significance of the quarter-of-birth dummies is insignificant (P > 0.25 in 1970), supporting the exclusion restriction that season of birth affects earnings only through compulsory-schooling-induced education.",
+      "paper_value": "No relationship between quarter of birth and earnings for college graduates; F-test not rejected at 25% level",
+      "provenance": {
+        "section": "III. Other Possible Effects of Season of Birth",
+        "page": 1008,
+        "quote": "The estimates suggest that quarter of birth has no effect on earnings for college graduates ... an F-test of the joint significance of quarter-of-birth dummies in an earnings regression that includes year-of-birth dummies is not rejected at the 25 percent level."
+      },
+      "notes": "This is the paper's key placebo/control-group test validating the instrument."
+    },
+    {
+      "id": "C21",
+      "description": "Adding quarter-of-birth dummies to the OLS earnings model that already includes education (prime-age men, Tables IV/V column 5) yields jointly insignificant quarter-of-birth effects: prob-value 0.73 (1970 Census) and 0.13 (1980 Census).",
+      "type": "scalar",
+      "tier": "supporting",
+      "verification": "Take the column-5 OLS earnings specification (prime-age men, Tables IV and V; log weekly wage on education plus covariates and year-of-birth dummies), add three quarter-of-birth dummies, and test their joint significance. Confirm the F-test prob-value \u2248 0.73 (1970 Census) and \u2248 0.13 (1980 Census), consistent with quarter of birth affecting earnings only through education.",
+      "paper_value": {
+        "1970_Census_pvalue": 0.73,
+        "1980_Census_pvalue": 0.13
+      },
+      "units": "p-value (F-test of joint significance of quarter-of-birth dummies)",
+      "provenance": {
+        "section": "III. Other Possible Effects of Season of Birth",
+        "page": 1008,
+        "quote": "The prob-value for an F-test of the null hypothesis that the quarter-of-birth dummies jointly equal zero is 0.73 in the 1970 Census and 0.13 in the 1980 Census."
+      },
+      "notes": "Tests that quarter of birth is excludable from the wage equation conditional on education."
+    },
+    {
+      "id": "C22",
+      "description": "The age-earnings profile (mean log weekly wage by year of birth) is positively sloped for men aged 30-39 (born 1940-1949) but fairly flat for men aged 40-49 (born 1930-1939), and first-quarter-of-birth men earn slightly less per week than men born in surrounding months.",
+      "type": "figure",
+      "tier": "supporting",
+      "verification": "Reproduce Figure V: mean log weekly wage by quarter of birth for all men born 1930-1949 (1980 Census). Inspect the produced figure. It should show (a) a roughly flat mean log wage across birth years for the older cohort (1930-1939, ages 40-49) and a rising profile for the younger cohort (1940-1949, ages 30-39), and (b) small dips for first-quarter births relative to surrounding quarters. Data drawn from the 1980 Census 5% sample.",
+      "expected_output_file": "output/replication/figure5_wage_by_qob.pdf",
+      "provenance": {
+        "section": "II. Estimating the Return to Education",
+        "page": 994,
+        "quote": "the age-earnings profile is positively sloped for men between ages 30 and 39 (born 1940-1949), but fairly flat for men between ages 40 and 49 (born 1930-1939)."
+      },
+      "notes": "Figure V. The 40-49 flatness motivates focusing Wald estimates on this age group to avoid life-cycle earnings confounds."
+    },
+    {
+      "id": "C23",
+      "description": "The detrended (deviation from MA(+2,-2)) years-of-schooling series shows that in 27 of the 29 birth years examined, average education of men born in the first quarter is below that predicted by the surrounding quarters.",
+      "type": "figure",
+      "tier": "supporting",
+      "verification": "Reproduce Figure IV: for each birth year (1930-1959), plot the deviation of each quarter's average education from the two-sided moving average MA(+2,-2). Inspect the produced figure and confirm that first-quarter (Q1) bars are negative (below the trend) in about 27 of the 29 birth years, while third/fourth-quarter bars tend to be positive.",
+      "paper_value": "First-quarter education below MA-predicted value in 27 of 29 birth years",
+      "expected_output_file": "output/replication/figure4_detrended_schooling.pdf",
+      "provenance": {
+        "section": "I. Season of Birth",
+        "page": 985,
+        "quote": "in 27 of the 29 birth years, the average education of men born in the first quarter of the year (January-March) is less than that predicted by the surrounding quarters based on the MA(+2,-2)."
+      },
+      "notes": "Figure IV, three panels (1930s, 1940s, 1950s cohorts). Quantitative check: count of negative-Q1 years \u2248 27/29."
+    }
+  ]
+}

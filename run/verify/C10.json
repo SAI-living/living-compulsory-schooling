@@ -1,0 +1,9 @@
+{
+  "claim_id": "C10",
+  "status": "not_attempted",
+  "structured": {},
+  "rationale": "No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Age-at-first-grade tabulation for boys born 1952 comes from the 1960 Census; the repo ships no 1960 Census data or tabulation script.",
+  "evidence_refs": [],
+  "not_attempted_reason": "authors_missing",
+  "graded_by": "deterministic"
+}

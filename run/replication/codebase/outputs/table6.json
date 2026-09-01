@@ -1,0 +1,90 @@
+{
+  "table": "VI",
+  "census": 1980,
+  "cohort": "1940-1949",
+  "n": 486926,
+  "columns": {
+    "col1": {
+      "estimator": "OLS",
+      "coef": 0.05733825,
+      "se": 0.00029806,
+      "t": 192.37382949,
+      "nobs": 486926,
+      "covset": "YOB dummies"
+    },
+    "col2": {
+      "estimator": "TSLS",
+      "coef": 0.05529783,
+      "se": 0.01375647,
+      "t": 4.01976796,
+      "nobs": 486926,
+      "overid_stat": 101.6213545,
+      "overid_df": 29,
+      "overid_p": "NA",
+      "covset": "YOB dummies"
+    },
+    "col3": {
+      "estimator": "OLS",
+      "coef": 0.05734614,
+      "se": 0.00029808,
+      "t": 192.3819893,
+      "nobs": 486926,
+      "covset": "YOB + AGEQ + AGEQSQ"
+    },
+    "col4": {
+      "estimator": "TSLS",
+      "coef": 0.09479878,
+      "se": 0.02227472,
+      "t": 4.25589083,
+      "nobs": 486926,
+      "overid_stat": 49.11870692,
+      "overid_df": 27,
+      "overid_p": "NA",
+      "covset": "YOB + AGEQ + AGEQSQ"
+    },
+    "col5": {
+      "estimator": "OLS",
+      "coef": 0.05204638,
+      "se": 0.00029709,
+      "t": 175.18932216,
+      "nobs": 486926,
+      "covset": "YOB + covariates"
+    },
+    "col6": {
+      "estimator": "TSLS",
+      "coef": 0.03927207,
+      "se": 0.01449198,
+      "t": 2.70991718,
+      "nobs": 486926,
+      "overid_stat": 93.56240329,
+      "overid_df": 29,
+      "overid_p": "NA",
+      "covset": "YOB + covariates"
+    },
+    "col7": {
+      "estimator": "OLS",
+      "coef": 0.05205583,
+      "se": 0.00029711,
+      "t": 175.20518639,
+      "nobs": 486926,
+      "covset": "YOB + covariates + AGEQ + AGEQSQ"
+    },
+    "col8": {
+      "estimator": "TSLS",
+      "coef": 0.07788127,
+      "se": 0.02387223,
+      "t": 3.26242108,
+      "nobs": 486926,
+      "overid_stat": 50.58238148,
+      "overid_df": 27,
+      "overid_p": "NA",
+      "covset": "YOB + covariates + AGEQ + AGEQSQ"
+    }
+  },
+  "qob_ftest_col5": {
+    "F": 14.04718999,
+    "df1": 3,
+    "df2": 486901,
+    "p": 3.74721969e-09
+  }
+}

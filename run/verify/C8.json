@@ -1,0 +1,16 @@
+{
+  "claim_id": "C8",
+  "status": "match",
+  "structured": {
+    "observed_behavior": "In the reproduced Table I (outputs/table1.json), the post-secondary outcomes show quarter-of-birth main effects roughly an order of magnitude smaller than the compulsory-schooling outcomes and lack the systematic negative-Q1 pattern. College graduate: coef_I=-0.0043/II=+0.0035/III=+0.0045 (1930s), -0.0031/+0.0051/-0.00002 (1940s). Master's degree: coef_I=-0.0006/II=+0.0023/III=-0.0001 with F_p=0.200 (1930s, insignificant), +0.0002/+0.0042/+0.0010 (1940s). Doctoral degree: coef_I=+0.0017 (positive) /II=+0.0026/III=+0.0005 (1930s), -0.0015/+0.0010/-0.0005 (1940s). By contrast total_education has coef_I=-0.119/-0.084 and HS graduate coef_I=-0.019/-0.014, both clearly negative in Q1 with F_p between 1e-10 and 1e-29. Post-secondary coefficients are near zero, Q1 is not consistently negative (doctoral 1930s is positive, master's ~0), matching the paper's 'no discernible pattern'.",
+    "claim_paraphrase": "The quarter-of-birth (seasonal) education pattern present for total years of schooling and high-school graduation is absent for post-secondary outcomes (college graduation, master's completion, doctoral completion) that are not constrained by compulsory schooling.",
+    "semantic_match": true
+  },
+  "rationale": "From /workspace/output/replication/codebase/outputs/table1.json, the compulsory-schooling outcomes reproduce the strong negative-Q1 seasonal pattern (total_education coef_I=-0.11941612 [1930s] and -0.08441265 [1940s]; high_school_graduate coef_I=-0.01879164 and -0.01414143), all with F prob-values from 3.35e-16 down to 1.23e-29. The post-secondary rows show the pattern is absent: college_graduate, masters_degree, and doctoral_degree QOB coefficients are all near zero (magnitudes ~0.00002-0.005) and lack a systematic negative Q1 \u2014 master's Q1 is essentially zero and its 1930s F-test is insignificant (F_p=0.20006089, matching the paper's noted P\u22480.1599), while doctoral Q1 for the 1930s is even positive (+0.00171809). This unambiguously demonstrates the claimed falsification result: no discernible seasonal pattern for post-high-school outcomes. The only major fix flagged in fix_severity.json concerns the Table 4 Stata->R 2SLS port, not the Table I / step-6 code path, so it does not undermine this result.",
+  "evidence_refs": [
+    "output/replication/codebase/outputs/table1.json",
+    "output/analyze/replication_plan.json",
+    "output/assess/fix_severity.json"
+  ],
+  "graded_by": "agent"
+}

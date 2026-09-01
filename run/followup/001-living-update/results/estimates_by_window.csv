@@ -1,0 +1,75 @@
+lane,claim,estimator,spec,data_source,cohort_or_earnings_year,n,coef,se,ci_lo,ci_hi,ar_ci_lo,ar_ci_hi,first_stage_F,notes
+A,C4,ols,controls,NEW7080 (package),1969,247199,0.07012,0.00035,0.06942,0.07081,,,,paper col-5 spec; AK target 0.0701
+A,C4,ols,controls,NEW7080 (package),1979,329509,0.06325,0.00034,0.06258,0.06391,,,,paper col-5 spec; AK target 0.0632
+A,C4,ols,bivariate,ACS 2005 PUMS,2005,181686,0.11262,0.00087,0.11092,0.11433,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2006 PUMS,2006,182864,0.11459,0.00082,0.11298,0.1162,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2007 PUMS,2007,180298,0.11689,0.00083,0.11526,0.11852,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2008 PUMS,2008,177360,0.11785,0.00085,0.11619,0.11951,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2009 PUMS,2009,172142,0.12404,0.0009,0.12228,0.1258,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2010 PUMS,2010,168179,0.12482,0.00086,0.12314,0.1265,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2011 PUMS,2011,161156,0.12581,0.00098,0.12389,0.12772,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2012 PUMS,2012,160876,0.12692,0.00093,0.12509,0.12875,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2013 PUMS,2013,160596,0.1225,0.00093,0.12068,0.12432,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2014 PUMS,2014,155205,0.12228,0.00093,0.12045,0.12411,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2015 PUMS,2015,154144,0.12035,0.00093,0.11852,0.12217,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2016 PUMS,2016,153430,0.11921,0.00092,0.1174,0.12102,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2017 PUMS,2017,155107,0.11857,0.00096,0.11669,0.12045,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2018 PUMS,2018,154759,0.11487,0.00093,0.11304,0.1167,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2019 PUMS,2019,153525,0.11069,0.00096,0.10881,0.11258,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2021 PUMS,2021,149845,0.10052,0.00098,0.09859,0.10245,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2022 PUMS,2022,157820,0.10107,0.00093,0.09924,0.1029,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2023 PUMS,2023,160384,0.10041,0.00099,0.09846,0.10236,,,,educ+age dummies
+A,C4,ols,bivariate,ACS 2024 PUMS,2024,162478,0.09981,0.00095,0.09794,0.10167,,,,educ+age dummies
+A,C4,ols,controls,ACS 2005 PUMS,2005,181686,0.1079,0.00085,0.10623,0.10958,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2006 PUMS,2006,182864,0.10885,0.0008,0.10729,0.11041,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2007 PUMS,2007,180298,0.1114,0.00081,0.10982,0.11298,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2008 PUMS,2008,177360,0.11152,0.00082,0.10992,0.11312,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2009 PUMS,2009,172142,0.11743,0.00087,0.11572,0.11914,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2010 PUMS,2010,168179,0.1185,0.00083,0.11687,0.12014,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2011 PUMS,2011,161156,0.119,0.00095,0.11714,0.12086,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2012 PUMS,2012,160876,0.11995,0.00091,0.11816,0.12174,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2013 PUMS,2013,160596,0.11552,0.0009,0.11375,0.11729,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2014 PUMS,2014,155205,0.11533,0.00091,0.11354,0.11712,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2015 PUMS,2015,154144,0.11302,0.0009,0.11125,0.11478,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2016 PUMS,2016,153430,0.11199,0.0009,0.11023,0.11375,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2017 PUMS,2017,155107,0.11039,0.00094,0.10856,0.11222,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2018 PUMS,2018,154759,0.10728,0.00091,0.1055,0.10906,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2019 PUMS,2019,153525,0.10236,0.00094,0.10052,0.1042,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2021 PUMS,2021,149845,0.09403,0.00096,0.09214,0.09591,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2022 PUMS,2022,157820,0.09439,0.00091,0.09261,0.09618,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2023 PUMS,2023,160384,0.09371,0.00097,0.0918,0.09561,,,,educ+age+black+married+region (no SMSA)
+A,C4,ols,controls,ACS 2024 PUMS,2024,162478,0.09229,0.00093,0.09047,0.09412,,,,educ+age+black+married+region (no SMSA)
+B,C3,ols,controls,NEW7080 (package),1920-1929,247199,0.07012,0.00039,0.06936,0.07088,,,,col-5 OLS
+B,C3,tsls,controls,NEW7080 (package),1920-1929,247199,0.06685,0.01509,0.03727,0.09643,0.01,0.122,4.55,30 QOBxYOB instruments; AR 95% set
+B,C3,liml,controls,NEW7080 (package),1920-1929,247199,0.06576,0.01743,0.0316,0.09992,,,4.55,LIML kappa=1.000
+B,C3,ols,controls,NEW7080 (package),1930-1939,329509,0.06325,0.00038,0.06251,0.06398,,,,col-5 OLS
+B,C3,tsls,controls,NEW7080 (package),1930-1939,329509,0.08055,0.01639,0.04844,0.11267,-0.002,0.178,4.75,30 QOBxYOB instruments; AR 95% set
+B,C3,liml,controls,NEW7080 (package),1930-1939,329509,0.08379,0.01788,0.04874,0.11884,,,4.75,LIML kappa=1.000
+B,C3,ols,controls,NEW7080 (package),1940-1949,486926,0.05205,0.00035,0.05137,0.05273,,,,col-5 OLS
+B,C3,tsls,controls,NEW7080 (package),1940-1949,486926,0.03927,0.01449,0.01087,0.06768,,,6.85,"30 QOBxYOB instruments; empty over [-0.5,0.8]; min AR=3.109>crit=1.459 (overid rejected)"
+B,C3,liml,controls,NEW7080 (package),1940-1949,486926,0.02865,0.0197,-0.00996,0.06726,,,6.85,LIML kappa=1.000
+B,C1,first_stage_q1,controls,NEW7080 (package),1920-1929,222258,-0.16682,0.02032,-0.20666,-0.12699,,,,"detrended MA(+2,-2) Q1 education deficit"
+B,C1,first_stage_q1,controls,NEW7080 (package),1930-1939,294196,-0.11942,0.01719,-0.15311,-0.08572,,,,"detrended MA(+2,-2) Q1 education deficit"
+B,C1,first_stage_q1,controls,NEW7080 (package),1940-1949,438507,-0.08441,0.01275,-0.10939,-0.05943,,,,"detrended MA(+2,-2) Q1 education deficit"
+C,C2,enrollment16,bivariate,AK Table II (printed),1960,,0.893,,0.876,0.91,,,,age-16 enrollment by law regime; DiD law effect 4.0pp
+C,C2,enrollment16,bivariate,AK Table II (printed),1970,,0.95,,0.942,0.958,,,,age-16 enrollment by law regime; DiD law effect 2.0pp
+C,C2,enrollment16,bivariate,AK Table II (printed),1980,,0.956,,0.95,0.962,,,,age-16 enrollment by law regime; DiD law effect 0.5pp
+C,C2,enrollment16,bivariate,ACS 2005 PUMS,2005,,0.9647,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.928"
+C,C2,enrollment16,bivariate,ACS 2006 PUMS,2006,,0.9623,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.927"
+C,C2,enrollment16,bivariate,ACS 2007 PUMS,2007,,0.9629,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.927"
+C,C2,enrollment16,bivariate,ACS 2008 PUMS,2008,,0.9677,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.934"
+C,C2,enrollment16,bivariate,ACS 2009 PUMS,2009,,0.9683,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.939"
+C,C2,enrollment16,bivariate,ACS 2010 PUMS,2010,,0.971,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.944"
+C,C2,enrollment16,bivariate,ACS 2011 PUMS,2011,,0.9744,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.946"
+C,C2,enrollment16,bivariate,ACS 2012 PUMS,2012,,0.9757,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.952"
+C,C2,enrollment16,bivariate,ACS 2013 PUMS,2013,,0.9744,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.950"
+C,C2,enrollment16,bivariate,ACS 2014 PUMS,2014,,0.9733,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.951"
+C,C2,enrollment16,bivariate,ACS 2015 PUMS,2015,,0.9718,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.952"
+C,C2,enrollment16,bivariate,ACS 2016 PUMS,2016,,0.9717,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.954"
+C,C2,enrollment16,bivariate,ACS 2017 PUMS,2017,,0.9746,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.950"
+C,C2,enrollment16,bivariate,ACS 2018 PUMS,2018,,0.9737,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.949"
+C,C2,enrollment16,bivariate,ACS 2019 PUMS,2019,,0.9736,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.951"
+C,C2,enrollment16,bivariate,ACS 2021 PUMS,2021,,0.9669,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.949"
+C,C2,enrollment16,bivariate,ACS 2022 PUMS,2022,,0.9697,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.948"
+C,C2,enrollment16,bivariate,ACS 2023 PUMS,2023,,0.9719,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.950"
+C,C2,enrollment16,bivariate,ACS 2024 PUMS,2024,,0.9717,,,,,,,"weighted share age-16 enrolled (SCH in 2,3); age-17=0.949"

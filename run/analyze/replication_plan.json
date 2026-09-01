@@ -1,0 +1,136 @@
+{
+  "environment": {
+    "language": "R (porting the shipped Stata .do and SAS programs); original code is Stata 10 .do files and a SAS reader.",
+    "key_dependencies": [
+      "R",
+      "haven",
+      "AER",
+      "ivreg",
+      "fixest",
+      "data.table",
+      "sandwich",
+      "lmtest"
+    ],
+    "setup_hints": "Work in the writable copy at /workspace/output/replication/codebase/. Neither Stata nor SAS is installed in this environment, so the shipped Stata programs (QOB Table IV/V/VI.do) and the SAS reader (ak91.sas) must be ported to R line-for-line, preserving every variable construction and regression specification exactly (this is an infrastructure-unavailable port, not a methodological change, and must be flagged downstream). R is at /usr/bin/Rscript and the needed packages (haven, AER, ivreg, fixest, data.table, sandwich, lmtest) are already installed in the system library. The canonical microdata is NEW7080/NEW7080.dta (read with haven::read_dta): it is the combined 1970+1980 Census extract with columns v1..v27 that the .do files call 'QOB_stata_data.dta' (verify: v16=CENSUS, v27=YOB, v4=EDUC, v9=LWKLYWGE, v18=QOB, v2=AGEQ, v17=state-of-birth code, v19=RACE). QOB/QOB_raw.txt (27 whitespace-delimited cols, 1980 Census only) and asciiqob/asciiqob.txt (5 cols: lwklywge educ yob qob pob, 1980 Census men 1930-39) are alternative extracts. Apply the .do adjustment `AGEQ = AGEQ - 1900 if CENSUS==80` and build AGEQSQ, YOB dummies (YR20..YR29, coding YOB==1900+y OR YOB==y so both censuses map), QOB dummies (QTR1..QTR4), and the 30 quarter-by-year interactions (QTR1{20..29}, QTR2{20..29}, QTR3{20..29}) exactly as in the .do files. Use classical (non-robust) standard errors to match Stata's `reg` and `ivregress 2sls` defaults. These regressions are modest in size (<=1.06M rows, <=30 instruments) and run fine on CPU; no GPU is required."
+  },
+  "steps": [
+    {
+      "id": 1,
+      "description": "Set up the working copy and R environment. Copy the repository to /workspace/output/replication/codebase/, confirm Rscript and the packages (haven, AER, ivreg, fixest, data.table, sandwich, lmtest) load, and load NEW7080/NEW7080.dta with haven::read_dta. Assign column names per the .do rename block (v1=AGE, v2=AGEQ, v4=EDUC, v9=LWKLYWGE, v16=CENSUS, v17=state-of-birth, v18=QOB, v19=RACE, v27=YOB, plus the region/marital/SMSA covariates v5,v6,v10,v11,v12,v13,v20,v21,v24,v25). Print a cross-tab of CENSUS x cohort and row counts to confirm the data matches the .do sample selections. This is a pure-setup step producing no claim evidence.",
+      "command_hint": "cp -r /workspace/repo /workspace/output/replication/codebase && cd /workspace/output/replication/codebase && Rscript -e 'library(haven);library(data.table);d<-as.data.table(read_dta(\"NEW7080/NEW7080.dta\"));setnames(d,\"v16\",\"CENSUS\");setnames(d,\"v27\",\"YOB\");print(d[,.N,by=.(CENSUS,cut(YOB,c(19,29,39,49,1919,1929,1939,1949)))])'",
+      "expected_outcome": "Console/log output confirming Rscript runs and all packages load; a table of observation counts by CENSUS (values 70 and 80) and birth-cohort bucket, with three populated groups: 1970 Census / born 1920-1929, 1980 Census / born 1930-1939, and 1980 Census / born 1940-1949. No regression output yet.",
+      "verifies": []
+    },
+    {
+      "id": 2,
+      "description": "Port 'QOB Table IV.do' to R and run it on the 1970 Census, men born 1920-1929 (keep COHORT<20.30, i.e. YOB in 1920-1929). Build YOB dummies, QOB dummies, the 30 quarter-by-year interactions, AGEQ (=AGEQ-1900 for CENSUS==80) and AGEQSQ exactly as in the .do file. Estimate all eight specifications: columns 1,3,5,7 are OLS (`lm`) of LWKLYWGE on EDUC with, respectively, (YOB dummies), (YOB + AGEQ + AGEQSQ), (YOB + covariates RACE MARRIED SMSA + 8 region dummies), (YOB + covariates + AGEQ + AGEQSQ); columns 2,4,6,8 are the matching TSLS (`AER::ivreg`) with EDUC instrumented by the 30 QOB-by-YOB interactions (plus the included YOB dummies). Use classical SEs. Additionally (for C21), re-run the column-5 OLS with three quarter-of-birth dummies (QTR1-QTR3) added and compute the F-test / prob-value that the QOB dummies are jointly zero. Write results to codebase/outputs/table4.json.",
+      "command_hint": "cd /workspace/output/replication/codebase && Rscript port_table4.R  # ports 'QOB Table IV.do'; reg -> lm, ivregress 2sls -> AER::ivreg, on NEW7080.dta with YOB 1920-1929",
+      "expected_outcome": "codebase/outputs/table4.json containing, for each of columns 1-8, the estimated coefficient on EDUC (float), its standard error (float), and t-ratio, tagged by estimator ('OLS' vs 'TSLS') and the covariate set; plus the TSLS chi-square/overid statistic and dof for the instrumented columns. An additional field reporting the F-statistic and prob-value for the joint QOB-dummy test added to the column-5 OLS model (1970 Census). Sample size ~247,199.",
+      "verifies": [
+        "C1",
+        "C2",
+        "C13",
+        "C21"
+      ]
+    },
+    {
+      "id": 3,
+      "description": "Port 'QOB Table V.do' to R and run it on the 1980 Census, men born 1930-1939 (keep COHORT in 30.00-30.40). Same eight specifications and variable construction as step 2 (OLS columns 1,3,5,7; TSLS columns 2,4,6,8 with EDUC instrumented by the 30 QOB-by-YOB interactions). Use classical SEs. Additionally (for C21), re-run the column-5 OLS with QTR1-QTR3 added and compute the F-test / prob-value that the quarter-of-birth dummies are jointly zero (1980 Census). Write results to codebase/outputs/table5.json.",
+      "command_hint": "cd /workspace/output/replication/codebase && Rscript port_table5.R  # ports 'QOB Table V.do'; NEW7080.dta, YOB 1930-1939, CENSUS 80",
+      "expected_outcome": "codebase/outputs/table5.json with the same structure as table4.json: per-column (1-8) EDUC coefficient, standard error, t-ratio, estimator tag and covariate set, plus TSLS overid chi-square/dof; and a field with the F-statistic and prob-value for the joint QOB-dummy test on the column-5 OLS model (1980 Census). Sample size ~329,509.",
+      "verifies": [
+        "C1",
+        "C2",
+        "C14",
+        "C21"
+      ]
+    },
+    {
+      "id": 4,
+      "description": "Port 'QOB Table VI.do' to R and run it on the 1980 Census, men born 1940-1949 (30-39 year-olds; keep COHORT>40.00). Same eight specifications and variable construction as steps 2-3 (OLS columns 1,3,5,7; TSLS columns 2,4,6,8 with EDUC instrumented by the 30 QOB-by-YOB interactions). Use classical SEs. Write results to codebase/outputs/table6.json.",
+      "command_hint": "cd /workspace/output/replication/codebase && Rscript port_table6.R  # ports 'QOB Table VI.do'; NEW7080.dta, YOB 1940-1949, CENSUS 80",
+      "expected_outcome": "codebase/outputs/table6.json with per-column (1-8) EDUC coefficient, standard error, t-ratio, estimator tag ('OLS'/'TSLS') and covariate set, plus TSLS overid chi-square/dof. The comparison of interest is the simple TSLS/Wald columns (no age controls) versus the columns that add AGEQ+AGEQSQ. Sample size ~486,926.",
+      "verifies": [
+        "C1",
+        "C2",
+        "C15"
+      ]
+    },
+    {
+      "id": 5,
+      "description": "Compute the Wald estimates of Table III from NEW7080.dta, replicating the paper's Wald method (a special case of IV with a single first-quarter-vs-rest indicator and no covariates). Panel A: 1970 Census men born 1920-1929; Panel B: 1980 Census men born 1930-1939. For each panel compute the mean ln(weekly wage) and mean years of education for men born in the 1st quarter vs men born in the 2nd/3rd/4th quarters, their differences (with standard errors), the Wald return = (difference in ln wage)/(difference in education), and the OLS return from a bivariate regression of LWKLYWGE on EDUC. Write results to codebase/outputs/table3.json.",
+      "command_hint": "cd /workspace/output/replication/codebase && Rscript table3_wald.R  # group means by (QOB==1 vs QOB in 2:4), Wald ratio, bivariate OLS; Panel A=1970/1920-29, Panel B=1980/1930-39",
+      "expected_outcome": "codebase/outputs/table3.json with two panels (A and B), each reporting: mean ln(wage) and mean education for the 1st-quarter group and the 2nd-4th-quarter group, the (1)-(2) differences with standard errors, the Wald return-to-education estimate with its standard error, and the OLS bivariate return with its standard error. Panel A sample ~247,199; Panel B sample ~329,509.",
+      "verifies": [
+        "C1",
+        "C11",
+        "C12"
+      ]
+    },
+    {
+      "id": 6,
+      "description": "Reproduce Table I quarter-of-birth effects on educational outcomes for the 1980 Census, men born 1930-1939 and 1940-1949 (CENSUS==80 subset of NEW7080.dta). For each birth cohort and each outcome variable derived from EDUC per the paper's footnote 8 -- total years of education (EDUC), high-school graduate (EDUC>=12), years of education for high-school graduates (EDUC | EDUC>=12), college graduate (EDUC>=16), completed master's degree (EDUC>=18), completed doctoral degree (EDUC>=20) -- form the cohort-by-quarter mean series E_{c,j}, subtract the two-sided moving-average trend MA(+2,-2) = (E_{-2}+E_{-1}+E_{+1}+E_{+2})/4, drop observations in the first two and last two quarters of the sample, and regress the detrended individual outcome on quarter-of-birth dummies for quarters 1,2,3 (quarter 4 omitted). Report the three coefficients with standard errors and the F-test (prob-value) that the QOB dummies jointly have no effect. NOTE: the shipped extract is the positive-earnings sample, which differs slightly from the paper's education-based Table I sample, so treat magnitudes as approximate. Write to codebase/outputs/table1.json.",
+      "command_hint": "cd /workspace/output/replication/codebase && Rscript table1_qob_education.R  # MA(+2,-2) detrend by cohort-quarter, LPM/OLS of detrended outcome on QTR1-QTR3, F-test; cohorts 1930-39 & 1940-49",
+      "expected_outcome": "codebase/outputs/table1.json with one block per (outcome variable x birth cohort). Each block reports the cohort mean of the outcome, the three quarter-of-birth coefficients (I, II, III relative to quarter 4) with standard errors, and the F-statistic with prob-value. Sign/scale to check: for total years of education and high-school graduation the quarter-1 coefficient is negative for both cohorts; for college graduate, master's, and doctoral the quarter effects are near zero (no seasonal pattern).",
+      "verifies": [
+        "C5",
+        "C6",
+        "C7",
+        "C8"
+      ]
+    },
+    {
+      "id": 7,
+      "description": "Reproduce the descriptive season-of-birth series behind Figures I, II, IV, and V from the 1980 Census (CENSUS==80 subset of NEW7080.dta), men born 1930-1949. (a) Figures I-II: mean years of completed education (EDUC) by year-of-birth and quarter-of-birth. (b) Figure IV: the detrended education series E_{c,j} - MA(+2,-2) by year and quarter, and a count of how many birth-years have the first-quarter mean below the surrounding-quarter MA prediction. (c) Figure V: mean ln(weekly wage) (LWKLYWGE) by year-of-birth and quarter-of-birth, separately noting the age-earnings slope for men born 1940-1949 (30-39 yr-olds) vs 1930-1939 (40-49 yr-olds) and whether first-quarter births earn slightly less than surrounding births. NOTE: the shipped data spans only birth years 1930-1949, so the 1950-1959 panels of Figures III/IV (the secularly declining cohorts) cannot be reproduced; cover the 1930-1949 (rising) cohorts only and record the 1950s axis as not reproducible from the shipped extract. Write series to codebase/outputs/figures.json (and optionally PNGs to codebase/outputs/).",
+      "command_hint": "cd /workspace/output/replication/codebase && Rscript figures_qob_means.R  # cell means of EDUC and LWKLYWGE by (YOB,QOB); MA(+2,-2) detrend; born 1930-1949",
+      "expected_outcome": "codebase/outputs/figures.json containing: a table of mean EDUC by (year-of-birth, quarter-of-birth) for 1930-1949; a table of the detrended education deviations by (year, quarter) plus an integer count (and total) of birth-years whose first-quarter mean lies below the MA(+2,-2) prediction; and a table of mean ln(weekly wage) by (year-of-birth, quarter-of-birth) for 1930-1949. Optional Figure I/II/IV/V PNGs. Values not to be prescribed here; the pattern to observe is a recurring first-quarter dip in education and a positively-sloped wage profile for the younger cohort that flattens for the older cohort.",
+      "verifies": [
+        "C4",
+        "C22",
+        "C23"
+      ]
+    }
+  ],
+  "claim_coverage": [
+    {
+      "claim_id": "C3",
+      "disposition": "blocked",
+      "reason": "Headline enrollment claim derives from Table II difference-in-differences on 1960/1970/1980 Census enrollment micro-data coded by state legal-dropout-age; the repo ships no such data or script (only 1920-49 male positive-earnings extracts in NEW7080.dta/QOB_raw.txt/asciiqob.txt)."
+    },
+    {
+      "claim_id": "C9",
+      "disposition": "blocked",
+      "reason": "Table II school-enrollment difference-in-differences (1944/1954/1964 cohorts) requires the 1960/1970/1980 enrollment samples with state compulsory-law type; not present in the repo (checked NEW7080.dta, QOB_raw.txt, asciiqob.txt, and all .do/.sas files)."
+    },
+    {
+      "claim_id": "C10",
+      "disposition": "blocked",
+      "reason": "Age-at-first-grade tabulation for boys born 1952 comes from the 1960 Census; the repo ships no 1960 Census data or tabulation script."
+    },
+    {
+      "claim_id": "C16",
+      "disposition": "out_of_scope",
+      "reason": "Table VII (seasonal pattern varying by state of birth: 180 QOB-by-state/QOB-by-year instruments + 50 state dummies) is a robustness extension with no shipped .do/.sas path; deprioritized (data exist in v17 but must be built from scratch)."
+    },
+    {
+      "claim_id": "C17",
+      "disposition": "out_of_scope",
+      "reason": "Table VIII (black men subsample) is a robustness subsample with no shipped script; deprioritized."
+    },
+    {
+      "claim_id": "C18",
+      "disposition": "out_of_scope",
+      "reason": "Log-weeks-worked TSLS variant (Table VII col 6) is a robustness check requiring a weeks-worked dependent variable and the Table VII specification; no shipped script; deprioritized."
+    },
+    {
+      "claim_id": "C19",
+      "disposition": "out_of_scope",
+      "reason": "OLS return for men with nine-to-twelve years of schooling is a footnote robustness check with no shipped script; deprioritized."
+    },
+    {
+      "claim_id": "C20",
+      "disposition": "out_of_scope",
+      "reason": "College-graduate falsification F-test (quarter of birth in an earnings regression) is a control experiment with no shipped script; the analogous within-sample falsification is already covered via C21 in steps 2-3."
+    }
+  ]
+}

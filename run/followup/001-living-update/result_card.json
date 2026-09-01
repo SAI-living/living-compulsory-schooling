@@ -1,0 +1,34 @@
+{
+  "schema": "sai.followup.result_card/v1",
+  "headline": "The OLS return to schooling has roughly doubled since 1979 (0.063 → ~0.092–0.100 in 2024), while AK91's headline IV≈OLS finding survives only as a point estimate — first-stage F≈5 makes it weak-IV-fragile, with an empty Anderson–Rubin set for the 1940s cohort.",
+  "status": "completed",
+  "metrics": [
+    {"label": "OLS return to schooling, 2024 (men 40–49, controls)", "value": "0.092", "baseline": "0.063 (1979)", "baseline_label": "package col-5, replication table5.json", "note": "roughly doubled; bivariate 0.100; peak ≈0.12 c.2010–2013"},
+    {"label": "First-stage F (30 QOB×YOB instruments)", "value": "4.6 / 4.8 / 6.9", "baseline": "not computed", "baseline_label": "original replication", "note": "weak instruments (Bound–Jaeger–Baker); new diagnostic"},
+    {"label": "Anderson–Rubin 95% set, 1940–49 cohort", "value": "empty (rejected)", "baseline": "TSLS 0.0393 (0.0145)", "baseline_label": "replication table6.json", "note": "min AR 3.11 > crit 1.46 over [-0.5,0.8]; over-ID rejected"},
+    {"label": "Age-16 enrollment, 2024", "value": "0.972", "baseline": "0.876–0.962 (1960–1980)", "baseline_label": "AK Table II (printed)", "note": "near-universal; law DiD effect +4.0pp→+0.5pp→~0"},
+    {"label": "1969/1979 OLS anchors reproduced", "value": "0.0701 / 0.0632", "baseline": "0.0701 / 0.0632", "baseline_label": "AK Table IV/V col-5", "note": "exact hits; validates pipeline"}
+  ],
+  "tables": [
+    {"title": "Lane B — IV on original data with modern inference",
+     "columns": ["Cohort", "OLS", "TSLS", "LIML", "1st-stage F", "AR 95% set"],
+     "rows": [
+       ["1920–29 @1970", "0.0701", "0.0669", "0.0658", "4.55", "[0.010, 0.122]"],
+       ["1930–39 @1980", "0.0632", "0.0806", "0.0838", "4.75", "[-0.002, 0.178]"],
+       ["1940–49 @1980", "0.0520", "0.0393", "0.0286", "6.85", "empty (rejected)"]
+     ],
+     "highlight_row": 2}
+  ],
+  "figures": [
+    {"file": "results/ak91_living.png",
+     "caption": "AK91 living update. Panel A: OLS return to schooling for men 40–49, 1969→2024 (package anchors + TSLS/AR at 1969/79; ACS 2005–2024). Panel B: first-stage Q1 education deficit attenuating across birth decades, with no public QOB data after the 1949 cohort. Panel C: 16–17-year-old enrollment near-universal, the law's bite falling to ~0.",
+     "alt": "Three stacked panels. Top: OLS return rising from ~0.07 in 1969/79 to ~0.12 around 2010 then easing to ~0.09 by 2024, with weak-IV TSLS/AR intervals at 1969 and 1979. Middle: three points at birth decades 1920s/30s/40s showing Q1 deficits of -0.167, -0.119, -0.084 with a grey 'no data ≥1950' region. Bottom: enrollment shares near 0.95-0.97 across 1960-2024 with fading DiD law-effect labels."}
+  ],
+  "notes": [
+    "2005–2007 ACS WKW is continuous weeks (1–52), not the 6-category interval the spec assumed (that coding began 2008); corrected in-data (else those years kept only ~2,200 vs ~181,000 records).",
+    "2020 ACS 1-Year PUMS does not exist (Census COVID gap); modern grid is 2005–2019 + 2021–2024, 2024 included.",
+    "IV series necessarily stops at the 1940–49 cohort: no public quarter-of-birth microdata after the 1980 Census and enrollment at 16 now ≈97%, so the instrument is both unavailable and economically dead.",
+    "No SMSA control exists in ACS; bridge check on package data shifts the 1979 return by only +0.0026 (<0.005). Education mapped from ACS attainment categories to years (per-mapped-year return)."
+  ],
+  "report_file": "report.md"
+}

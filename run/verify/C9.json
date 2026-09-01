@@ -1,0 +1,9 @@
+{
+  "claim_id": "C9",
+  "status": "not_attempted",
+  "structured": {},
+  "rationale": "No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Table II school-enrollment difference-in-differences (1944/1954/1964 cohorts) requires the 1960/1970/1980 enrollment samples with state compulsory-law type; not present in the repo (checked NEW7080.dta, QOB_raw.txt, asciiqob.txt, and all .do/.sas files).",
+  "evidence_refs": [],
+  "not_attempted_reason": "authors_missing",
+  "graded_by": "deterministic"
+}

@@ -1,0 +1,90 @@
+{
+  "table": "IV",
+  "census": 1970,
+  "cohort": "1920-1929",
+  "n": 247199,
+  "columns": {
+    "col1": {
+      "estimator": "OLS",
+      "coef": 0.08015946,
+      "se": 0.00035521,
+      "t": 225.66993644,
+      "nobs": 247199,
+      "covset": "YOB dummies"
+    },
+    "col2": {
+      "estimator": "TSLS",
+      "coef": 0.07685568,
+      "se": 0.01504165,
+      "t": 5.10952459,
+      "nobs": 247199,
+      "overid_stat": 36.02256384,
+      "overid_df": 29,
+      "overid_p": "NA",
+      "covset": "YOB dummies"
+    },
+    "col3": {
+      "estimator": "OLS",
+      "coef": 0.08016756,
+      "se": 0.00035528,
+      "t": 225.64538381,
+      "nobs": 247199,
+      "covset": "YOB + AGEQ + AGEQSQ"
+    },
+    "col4": {
+      "estimator": "TSLS",
+      "coef": 0.13104244,
+      "se": 0.03335686,
+      "t": 3.92850072,
+      "nobs": 247199,
+      "overid_stat": 25.5898329,
+      "overid_df": 27,
+      "overid_p": "NA",
+      "covset": "YOB + AGEQ + AGEQSQ"
+    },
+    "col5": {
+      "estimator": "OLS",
+      "coef": 0.07011881,
+      "se": 0.00035465,
+      "t": 197.71288725,
+      "nobs": 247199,
+      "covset": "YOB + covariates"
+    },
+    "col6": {
+      "estimator": "TSLS",
+      "coef": 0.06685089,
+      "se": 0.01509186,
+      "t": 4.42959995,
+      "nobs": 247199,
+      "overid_stat": 34.16476196,
+      "overid_df": 29,
+      "overid_p": "NA",
+      "covset": "YOB + covariates"
+    },
+    "col7": {
+      "estimator": "OLS",
+      "coef": 0.07012416,
+      "se": 0.00035473,
+      "t": 197.68552323,
+      "nobs": 247199,
+      "covset": "YOB + covariates + AGEQ + AGEQSQ"
+    },
+    "col8": {
+      "estimator": "TSLS",
+      "coef": 0.10071515,
+      "se": 0.0334136,
+      "t": 3.01419601,
+      "nobs": 247199,
+      "overid_stat": 28.80884559,
+      "overid_df": 27,
+      "overid_p": "NA",
+      "covset": "YOB + covariates + AGEQ + AGEQSQ"
+    }
+  },
+  "qob_ftest_col5": {
+    "F": 0.4400631,
+    "df1": 3,
+    "df2": 247174,
+    "p": 0.7243448
+  }
+}

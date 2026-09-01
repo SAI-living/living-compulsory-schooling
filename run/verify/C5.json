@@ -1,0 +1,23 @@
+{
+  "claim_id": "C5",
+  "status": "match",
+  "structured": {
+    "replicated_value": {
+      "1930-1939": -0.119,
+      "1940-1949": -0.084
+    },
+    "paper_value": {
+      "1930-1939": -0.124,
+      "1940-1949": -0.085
+    },
+    "uncertainty": null,
+    "value_found": true
+  },
+  "rationale": "Step 6 reproduced Table I via the MA(+2,-2) detrended regression of years of education on quarter-of-birth dummies. In outputs/table1.json the 'total_education' blocks give the quarter-1 main effect (relative to quarter 4): for the 1930-1939 cohort est=-0.11941612 (se 0.01719015, n=294196, F=25.06) and for the 1940-1949 cohort est=-0.08441265 (se 0.01274599, n=438507, F=16.25). Both are negative and about one tenth of a year, matching the paper's claim. Compared to paper_value (-0.124, se 0.017; -0.085, se 0.012), the 1930s deviation is ~0.005 (<0.3\u03c3) and the 1940s deviation is ~0.0006 (<0.05\u03c3) \u2014 both well within \u00b11\u03c3. The only recorded fix (fix_severity.json) is a benign Stata-to-R port of the IV pipeline rated 'major' for effort, with no critical defect and no impact on the Table I method; the evidence note flags the positive-earnings extract as an approximate sample, consistent with the tiny observed offsets. Verdict: match on both cohorts.",
+  "evidence_refs": [
+    "output/replication/codebase/outputs/table1.json",
+    "output/analyze/replication_plan.json",
+    "output/assess/fix_severity.json"
+  ],
+  "graded_by": "agent"
+}

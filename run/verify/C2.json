@@ -1,0 +1,18 @@
+{
+  "claim_id": "C2",
+  "status": "match",
+  "structured": {
+    "observed_behavior": "Across the reproduced OLS/TSLS matched pairs in Tables IV, V, and VI, TSLS returns to education are close to OLS. Table IV: OLS 0.0802/0.0802/0.0701/0.0701 vs TSLS 0.0769/0.1310/0.0669/0.1007 (SEs .0150/.0334/.0151/.0334). Table V: OLS 0.0711/0.0711/0.0632/0.0632 vs TSLS 0.0891/0.0760/0.0806/0.0600 (SEs .0161/.0290/.0164/.0290). Table VI: OLS 0.0573/0.0573/0.0520/0.0520 vs TSLS 0.0553/0.0948/0.0393/0.0779 (SEs .0138/.0223/.0145/.0239). All 12 OLS-vs-TSLS differences lie within ~1.7 TSLS standard errors (OLS SEs are ~0.0004, negligible), so none is significant at the 5% level. A majority of TSLS estimates equal or exceed the matching OLS estimate, consistent with OLS being biased slightly downward if anything.",
+    "claim_paraphrase": "TSLS/IV returns to education (using quarter of birth) are close to OLS, the OLS-TSLS differences are generally not statistically significant, and OLS is if anything biased slightly downward.",
+    "semantic_match": true
+  },
+  "rationale": "Reading the produced regression outputs table4.json, table5.json, and table6.json, each table pairs OLS columns (1,3,5,7) with matching-covariate TSLS columns (2,4,6,8). Within every matched pair the TSLS EDUC coefficient is close to the OLS coefficient, and every OLS-vs-TSLS difference is within roughly 1.7 TSLS standard errors (differences range from ~0.1 to ~1.7 SE); because the OLS SEs are ~0.0004 the difference SE is essentially the TSLS SE, so no difference is significant at conventional levels. Of the 12 matched pairs, 7 have TSLS at or above OLS (e.g. Table IV col4 0.1310 vs 0.0802, Table V col6 0.0806 vs 0.0632, Table VI col8 0.0779 vs 0.0520), matching the claim that OLS is if anything biased slightly downward. This unambiguously demonstrates the described behavior. The only fix (fix_severity.json) was a benign Stata->R port of the AK91 IV pipeline, not a methodological change, so the produced values faithfully reflect the paper's specification.",
+  "evidence_refs": [
+    "output/replication/codebase/outputs/table4.json",
+    "output/replication/codebase/outputs/table5.json",
+    "output/replication/codebase/outputs/table6.json",
+    "output/assess/fix_severity.json",
+    "output/analyze/replication_plan.json"
+  ],
+  "graded_by": "agent"
+}

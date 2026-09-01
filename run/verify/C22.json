@@ -1,0 +1,33 @@
+{
+  "claim_id": "C22",
+  "status": "match",
+  "structured": {
+    "file_exists": false,
+    "evidence_found": true,
+    "file_path_checked": [
+      "output/replication/figure5_wage_by_qob.pdf",
+      "output/replication/codebase/outputs/figure5_wage.png",
+      "output/replication/codebase/outputs/figures.json"
+    ],
+    "structural_features_present": [
+      "x-axis = year of birth (1930-1949, shown 30-50)",
+      "y-axis = mean ln(weekly wage)",
+      "four quarter-of-birth series (Q1-Q4) color-coded with numeric markers and legend",
+      "fairly flat profile for older cohort born 1930-1939 (ages 40-49): by-YOB slope -0.00068 ~ 0",
+      "steeply positively-sloped age-earnings profile for younger cohort born 1940-1949 (ages 30-39): by-YOB slope -0.0242 (declining by year of birth = rising with age)",
+      "first-quarter (Q1) births earn slightly less than surrounding quarters: Q1=5.836 vs Q2-4=5.840, diff=-0.0032"
+    ],
+    "structural_features_missing": [
+      "combined figure emitted as PNG (figure5_wage.png) rather than the exact expected PDF path figure5_wage_by_qob.pdf"
+    ],
+    "structural_match": true
+  },
+  "rationale": "The produced figure output/replication/codebase/outputs/figure5_wage.png reproduces Angrist-Krueger Figure V: 'Mean ln weekly wage by year and quarter of birth (1980 Census)', with year of birth (1930-1949) on the x-axis, mean ln(weekly wage) on the y-axis, and four color-coded quarter-of-birth series (Q1-Q4) with a legend. It shows exactly the described structure: the older cohort born 1930-1939 (left, ages 40-49) is fairly flat (~5.87-5.91), while the younger cohort born 1940-1949 (right, ages 30-39) declines steeply \u2014 this by-year-of-birth decline is precisely the positively-sloped age-earnings profile (younger cohorts earn less). The backing figures.json confirms the two slopes quantitatively (fig5_age_earnings_slope: older_1930_39 = -0.00068 ~ flat, younger_1940_49 = -0.0242 steep) and confirms Q1 births earn slightly less (fig5_q1_vs_rest_wage: q1=5.83638 vs q2_4=5.83961, diff=-0.00323); in the plot the black '1' (Q1) markers sit consistently below the other quarters in the 1930-1942 region. fix_severity.json rates the only code change a 'major' Stata->R language port with no methodological defect, so the produced result faithfully reflects the paper's method. Both described features (a) flat-then-sloped cohort profiles and (b) small Q1 dips are present. The only deviation is the filename/format (PNG named figure5_wage.png vs the expected figure5_wage_by_qob.pdf), which does not affect the structural match.",
+  "evidence_refs": [
+    "output/replication/codebase/outputs/figure5_wage.png",
+    "output/replication/codebase/outputs/figures.json",
+    "output/analyze/replication_plan.json",
+    "output/assess/fix_severity.json"
+  ],
+  "graded_by": "agent"
+}

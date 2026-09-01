@@ -1,0 +1,9 @@
+{
+  "claim_id": "C3",
+  "status": "not_attempted",
+  "structured": {},
+  "rationale": "No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Headline enrollment claim derives from Table II difference-in-differences on 1960/1970/1980 Census enrollment micro-data coded by state legal-dropout-age; the repo ships no such data or script (only 1920-49 male positive-earnings extracts in NEW7080.dta/QOB_raw.txt/asciiqob.txt).",
+  "evidence_refs": [],
+  "not_attempted_reason": "authors_missing",
+  "graded_by": "deterministic"
+}

@@ -1,0 +1,15 @@
+{
+  "fixes": [
+    {
+      "fix_description": "Ported the original Stata .do file (Table 4) to R: reg -> lm(), ivregress 2sls -> AER::ivreg(), hardcoded Windows absolute paths replaced with a relative NEW7080/NEW7080.dta reference, and YOB dummies made robust to both 4-digit and 2-digit year-of-birth coding.",
+      "severity": "major",
+      "rationale": "This is not a one-line rename. Faithfully translating a full Stata 2SLS/IV pipeline to R requires understanding the econometric specification: reconstructing the year-of-birth dummy set, building the ~30 quarter-of-birth x year-of-birth interaction instruments, and correctly wiring the AER::ivreg endogenous/instrument split (EDUC instrumented by QTRxYOB interactions plus exogenous YOB dummies). A human must understand the model, not just the syntax, to get an identical fit. The embedded hardcoded-path swap on its own would be minor, but the surrounding language port dominates the effort. It stops short of critical because nothing about the paper's method is missing or unimplementable \u2014 the specification is fully known and the R port reproduces it exactly.",
+      "reproducibility_impact": "Reflects a toolchain/environment mismatch (original code is proprietary-Stata; replication run in open-source R) rather than a defect in the paper's methodology. The original .do file appears complete and correct \u2014 the model, instruments, and data reference were all recoverable \u2014 so this speaks well of the underlying reproducibility. The only genuine repo-quality signal is the Windows-absolute hardcoded paths, a common portability lapse that is trivially corrected."
+    }
+  ],
+  "summary": "The entire fix burden is a single item: a language port of the Table 4 Stata script to R (this is the Angrist-Krueger 1991 quarter-of-birth IV design, using NEW7080.dta). There were no reproduction errors in the scientific sense \u2014 no wrong parameters, no missing data, no methodology gaps. The one fix is rated major only because translating a 2SLS specification with ~30 QOBxYOB interaction instruments demands real understanding of the econometrics, not routine maintenance. Its reproducibility implications are largely benign: the original Stata code was complete and faithfully portable, and the sole repo-quality wart was hardcoded Windows paths. Overall this is a clean, well-specified replication whose only obstacle was a Stata->R toolchain conversion driven by environment rather than any deficiency in the paper.",
+  "total_fixes": 1,
+  "minor_count": 0,
+  "major_count": 1,
+  "critical_count": 0
+}

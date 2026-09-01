@@ -1,0 +1,32 @@
+{
+  "claim_id": "C14",
+  "status": "match",
+  "structured": {
+    "replicated_table": {
+      "(1) OLS": 0.0711,
+      "(2) TSLS": 0.0891,
+      "(3) OLS": 0.0711,
+      "(4) TSLS": 0.076,
+      "(5) OLS": 0.0632,
+      "(6) TSLS": 0.0806,
+      "(7) OLS": 0.0632,
+      "(8) TSLS": 0.06
+    },
+    "paper_table": {
+      "(1) OLS": 0.0711,
+      "(2) TSLS": 0.0891,
+      "(3) OLS": 0.0711,
+      "(4) TSLS": 0.076,
+      "(5) OLS": 0.0632,
+      "(6) TSLS": 0.0806,
+      "(7) OLS": 0.0632,
+      "(8) TSLS": 0.06
+    },
+    "value_found": true
+  },
+  "rationale": "The run reproduced Table V by running the OLS/TSLS regressions on the 1980 Census extract (N=329,509, men born 1930-1939) with results written to output/replication/codebase/outputs/table5.json. The EDUC coefficient in all eight columns matches the paper's reported values within <0.1% relative error: col1 OLS 0.07108 (paper 0.0711), col2 TSLS 0.08912 (0.0891), col3 OLS 0.07107 (0.0711), col4 TSLS 0.07600 (0.0760), col5 OLS 0.06325 (0.0632), col6 TSLS 0.08055 (0.0806), col7 OLS 0.06324 (0.0632, t=186.4), col8 TSLS 0.05995 (0.0600, t=2.07). N matches exactly (329,509). The col7-8 focus values from the provenance quote (OLS 0.063, TSLS 0.060) are reproduced. Every cell is well within the 5% match threshold. (Note: output landed in table5.json rather than the expected table5.csv, but the numeric evidence is present and gradeable.)",
+  "evidence_refs": [
+    "output/replication/codebase/outputs/table5.json"
+  ],
+  "graded_by": "agent"
+}

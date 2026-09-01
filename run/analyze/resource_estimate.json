@@ -1,0 +1,23 @@
+{
+  "compute_class": "light",
+  "breakdown_notes": "Paper: Angrist & Krueger (1991), 'Does Compulsory School Attendance Affect Schooling and Earnings?' (QJE Vol. CVI, Issue 4). This is a 1991 labor-economics paper whose entire empirical content is OLS and two-stage-least-squares (TSLS) regressions on U.S. decennial Census microdata (quarter-of-birth as an instrument for education). The paper reports NO hardware, wall-clock time, API cost, or GPU information \u2014 such details are absent from 1991 econometrics papers and none were found in the text or appendix. Falling back to the replication plan: the entire replication is a line-for-line port of the shipped Stata .do files and a SAS reader into R (Stata/SAS are not installed), run on the NEW7080.dta Census extract. The full dataset is a single 19MB Stata file (~1.06M rows, 27 columns; confirmed on disk at /workspace/repo/NEW7080/NEW7080.dta). Per-table subsamples are ~247,199 (1970 Census, born 1920-29), ~329,509 (1980, born 1930-39), and ~486,926 (1980, born 1940-49). The largest model is a TSLS with 30 quarter-by-year interaction instruments on ~487k rows \u2014 trivial for CPU; the plan itself notes 'these regressions are modest in size (<=1.06M rows, <=30 instruments) and run fine on CPU; no GPU is required.' There are 7 executable steps (steps 1-7); step 1 is pure setup and steps 2-7 fit regressions / compute group means and detrended series. No step involves model training in the deep-learning sense, no step calls any external LLM API, and no step requires GPU. Each Rscript invocation should complete in seconds to at most a couple of minutes (data load dominates); the whole replication runs well under 5 minutes on a single CPU core, with steps trivially parallelizable across the independent table scripts. Reproducing the full paper additionally requires 1960/1970/1980 enrollment micro-data for Table II (claims C3, C9, C10), which is NOT shipped and is out of scope here \u2014 but even that would be CPU-only tabulation, not a compute concern.",
+  "needs_gpu": false,
+  "paper_reported_compute": null,
+  "paper_reported_cost_usd": null,
+  "estimated_cost_usd": 0.0,
+  "estimated_cost_source": null,
+  "dataset_size": "~19 MB Stata file (NEW7080.dta), ~1.06M rows x 27 columns; per-table subsamples 247k-487k rows",
+  "total_steps": 7,
+  "executable_steps": 7,
+  "training_or_inference_steps": 0,
+  "estimated_experiment_runs": 6,
+  "estimated_llm_calls": 0,
+  "needs_llm_api": false,
+  "parallelizable": false,
+  "estimated_wall_clock": "under 5 minutes on a single CPU core",
+  "resource_type": "CPU only",
+  "notes_on_repeated_steps": "Steps 2-4 apply the same eight-specification OLS/TSLS template to three disjoint Census subsamples (Tables IV/V/VI); step 5 (Table III Wald) and steps 6-7 (Table I education outcomes and Figure I/II/IV/V descriptive series) are additional CPU-only regressions and cell-mean computations on the same data. No seeds/Monte-Carlo repetition; regressions are deterministic closed-form estimates.",
+  "external_llm": null,
+  "requires_data_download": false,
+  "key_dependencies": []
+}

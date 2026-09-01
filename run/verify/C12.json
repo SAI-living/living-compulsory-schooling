@@ -1,0 +1,34 @@
+{
+  "claim_id": "C12",
+  "status": "match",
+  "structured": {
+    "replicated_table": {
+      "ln(weekly wage) | Q1": 5.8916,
+      "ln(weekly wage) | Q2-Q4": 5.9027,
+      "ln(weekly wage) | Difference (Q1-rest)": -0.0111,
+      "Education (years) | Q1": 12.6881,
+      "Education (years) | Q2-Q4": 12.7969,
+      "Education (years) | Difference (Q1-rest)": -0.1088,
+      "Wald est. of return to education | Difference (Q1-rest)": 0.102,
+      "OLS return to education | Difference (Q1-rest)": 0.0709
+    },
+    "paper_table": {
+      "ln(weekly wage) | Q1": 5.8916,
+      "ln(weekly wage) | Q2-Q4": 5.9027,
+      "ln(weekly wage) | Difference (Q1-rest)": -0.0111,
+      "Education (years) | Q1": 12.6881,
+      "Education (years) | Q2-Q4": 12.7969,
+      "Education (years) | Difference (Q1-rest)": -0.1088,
+      "Wald est. of return to education | Difference (Q1-rest)": 0.102,
+      "OLS return to education | Difference (Q1-rest)": 0.0709
+    },
+    "value_found": true
+  },
+  "rationale": "The run produced Table III Panel B in /workspace/output/replication/codebase/outputs/table3.json (panelB block), computed by table3_wald.R on the 1980 Census extract (men born 1930-1939, N=329,509, matching the repo's asciiqob.txt). Every cell matches the paper within well under 5% relative error: ln(weekly wage) Q1=5.89159589 vs 5.8916, Q2-Q4=5.90269478 vs 5.9027, diff=-0.01109888 vs -0.0111; Education Q1=12.68806553 vs 12.6881, Q2-Q4=12.79688345 vs 12.7969, diff=-0.10881792 vs -0.1088; Wald return=0.101995 vs 0.102; OLS return=0.07085104 vs 0.0709. The Wald estimate (0.102) exceeds the OLS estimate (0.0709), and the claim's assertion that the difference is not statistically significant is consistent with the reported Wald SE (~0.0252), which comfortably spans the OLS value. fix_severity.json records only a major Stata->R port of the Table 4 IV code with no scientific methodology gaps, not bearing negatively on this Wald/mean computation. All cells match.",
+  "evidence_refs": [
+    "output/replication/codebase/outputs/table3.json",
+    "output/replication/codebase/table3_wald.R",
+    "output/assess/fix_severity.json"
+  ],
+  "graded_by": "agent"
+}

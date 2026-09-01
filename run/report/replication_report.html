@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Replication Report</title>
+<style>
+  :root {
+    --match: #1a7f37; --partial: #9a6700; --nomatch: #cf222e;
+    --na: #57606a; --bg: #f6f8fa; --card: #ffffff; --ink: #1f2328;
+    --muted: #57606a; --line: #d0d7de; --accent: #0969da;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--ink); background: var(--bg); margin: 0; line-height: 1.55;
+    font-size: 15px;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 28px 22px 60px; }
+  h1 { font-size: 22px; margin: 0 0 2px; }
+  h2 { font-size: 17px; margin: 28px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+  h3 { font-size: 14px; margin: 16px 0 4px; color: var(--ink); }
+  p { margin: 6px 0; }
+  .sub { color: var(--muted); font-size: 13px; }
+  a { color: var(--accent); text-decoration: none; }
+  code { background: var(--bg); border: 1px solid var(--line); border-radius: 5px; padding: 1px 5px; font-size: 12.5px; }
+
+  /* Verdict card */
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 20px 22px; margin-top: 14px; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+  .hero { display: flex; gap: 22px; align-items: center; }
+  .gauge { flex: 0 0 auto; }
+  .hero-body { flex: 1 1 auto; }
+  .badge { display: inline-block; font-weight: 600; font-size: 12px; letter-spacing: .02em; padding: 3px 10px; border-radius: 999px; color: #fff; }
+  .bottomline { font-size: 16px; font-weight: 500; margin: 8px 0 10px; }
+  .stats { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted); font-size: 13px; }
+  .stats b { color: var(--ink); }
+
+  /* Tier bar */
+  .bar { display: flex; height: 12px; border-radius: 6px; overflow: hidden; border: 1px solid var(--line); margin: 4px 0 2px; }
+  .bar > span { display: block; }
+  .legend { display: flex; gap: 14px; flex-wrap: wrap; font-size: 12px; color: var(--muted); margin-top: 6px; }
+  .legend i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin-right: 5px; vertical-align: -1px; }
+
+  /* Claim chips */
+  .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 6px; }
+  .chip { font-size: 12px; padding: 3px 9px; border-radius: 999px; border: 1px solid var(--line); color: #fff; font-weight: 500; }
+
+  /* Tables */
+  table { border-collapse: collapse; width: 100%; font-size: 13px; margin: 8px 0; }
+  th, td { text-align: left; padding: 7px 9px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; }
+  .st { font-weight: 600; }
+
+  details { margin: 8px 0; border: 1px solid var(--line); border-radius: 8px; background: var(--card); }
+  details > summary { cursor: pointer; padding: 9px 12px; font-weight: 600; font-size: 13.5px; }
+  details[open] > summary { border-bottom: 1px solid var(--line); }
+  details .inner { padding: 4px 14px 12px; }
+  .refs { font-size: 12.5px; color: var(--muted); }
+  .refs code { font-size: 12px; }
+  footer { margin-top: 34px; color: var(--muted); font-size: 12px; text-align: center; }
+  @media print { body { background: #fff; } .card { box-shadow: none; } details { border: none; } details > summary { display: none; } details .inner { padding: 0; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Replication Report</h1>
+  <div class="sub">Mode: full · Generated 2026-08-23 22:33</div>
+
+  <!-- VERDICT CARD -->
+  <div class="card">
+    <div class="hero">
+      <div class="gauge">
+        <svg width="104" height="104" viewBox="0 0 104 104" role="img" aria-label="Replication score 74%">
+          <circle cx="52" cy="52" r="46" fill="none" stroke="#eaeef2" stroke-width="10"/>
+          
+          <circle cx="52" cy="52" r="46" fill="none" stroke="#9a6700" stroke-width="10"
+                  stroke-linecap="round" stroke-dasharray="214.9 289.0"
+                  transform="rotate(-90 52 52)"/>
+          <text x="52" y="50" text-anchor="middle" font-size="22" font-weight="700" fill="#1f2328">74%</text>
+          <text x="52" y="68" text-anchor="middle" font-size="10" fill="#57606a">score</text>
+          
+        </svg>
+      </div>
+      <div class="hero-body">
+        <span class="badge" style="background: #9a6700">Partially reproduced</span>
+        
+        <div class="stats">
+          <span><b>12/18</b> claims reproduced</span>
+          <span><b>3</b> partial</span>
+          
+          
+          <span><b>1</b> fix applied</span>
+          
+        </div>
+      </div>
+    </div>
+
+    
+    <h3 style="margin-top:16px">Claims at a glance</h3>
+    <div class="bar" aria-hidden="true">
+      <span style="width: 52.17%; background: var(--match)"></span>
+      <span style="width: 13.04%; background: var(--partial)"></span>
+      
+      <span style="width: 13.04%; background: var(--na)"></span>
+    </div>
+    <div class="legend">
+      <span><i style="background: var(--match)"></i>match 12</span>
+      <span><i style="background: var(--partial)"></i>partial 3</span>
+      <span><i style="background: var(--nomatch)"></i>no match 0</span>
+      <span><i style="background: var(--na)"></i>other 3</span>
+    </div>
+    
+    <div class="chips">
+      <span class="chip" style="background: #1a7f37" title="scalar · match">C1</span><span class="chip" style="background: #1a7f37" title="qualitative · match">C2</span><span class="chip" style="background: #57606a" title="scalar_range · not_attempted">C3</span><span class="chip" style="background: #9a6700" title="qualitative · partial">C4</span><span class="chip" style="background: #1a7f37" title="scalar · match">C5</span><span class="chip" style="background: #9a6700" title="table · partial">C6</span><span class="chip" style="background: #1a7f37" title="scalar · match">C7</span><span class="chip" style="background: #1a7f37" title="qualitative · match">C8</span><span class="chip" style="background: #57606a" title="scalar · not_attempted">C9</span><span class="chip" style="background: #57606a" title="scalar · not_attempted">C10</span><span class="chip" style="background: #1a7f37" title="table · match">C11</span><span class="chip" style="background: #1a7f37" title="table · match">C12</span><span class="chip" style="background: #1a7f37" title="table · match">C13</span><span class="chip" style="background: #1a7f37" title="table · match">C14</span><span class="chip" style="background: #1a7f37" title="table · match">C15</span><span class="chip" style="background: #8250df" title="scalar · out_of_scope">C16</span><span class="chip" style="background: #8250df" title="qualitative · out_of_scope">C17</span><span class="chip" style="background: #8250df" title="scalar · out_of_scope">C18</span><span class="chip" style="background: #8250df" title="scalar · out_of_scope">C19</span><span class="chip" style="background: #8250df" title="qualitative · out_of_scope">C20</span><span class="chip" style="background: #1a7f37" title="scalar · match">C21</span><span class="chip" style="background: #1a7f37" title="figure · match">C22</span><span class="chip" style="background: #9a6700" title="figure · partial">C23</span>
+    </div>
+    
+    
+  </div>
+
+  
+  <div class="card" style="border-color: #d4a72c; background: #fff8c5">
+    <b>Flags</b>
+    <ul style="margin:6px 0 0"><li>5 claim(s) marked out_of_scope (planner did not target them) — excluded from the score, not counted as failures. Score is over the 18 attempted/blocked claim(s).</li></ul>
+  </div>
+  
+
+  <!-- NARRATIVE (summary-first) -->
+  
+
+  <!-- LIMITATIONS -->
+  
+  <h2>Limitations &amp; code quality</h2>
+  
+  
+  <p class="sub">1 fix were needed to run the provided code (0 minor, 1 major, 0 critical). These describe the code, not the replication.</p>
+  <table>
+    <thead><tr><th>#</th><th>Fix</th><th>Severity</th></tr></thead>
+    <tbody><tr><td>1</td><td>Ported the original Stata .do file (Table 4) to R: reg -&gt; lm(), ivregress 2sls -&gt; AER::ivreg(), hardcoded Windows absolute paths replaced with a relative NEW7080/NEW7080.dta reference, and YOB dummies made robust to both 4-digit and 2-digit year-of-birth coding.</td><td class="st" style="color: #9a6700">major</td></tr></tbody>
+  </table>
+  
+  
+
+  <!-- CITATION CHECK (advisory; a plain section so it also lands in the PDF) -->
+  
+
+  <!-- DETAILS (collapsible) -->
+  <h2>Details</h2>
+
+  <details>
+    <summary>Per-claim verdicts (23)</summary>
+    <div class="inner">
+      <table>
+        <thead><tr><th>ID</th><th>Tier</th><th>Type</th><th>Status</th><th>How graded</th><th>Why</th></tr></thead>
+        <tbody>
+        
+          <tr>
+            <td><code>C1</code></td><td>headline</td><td>scalar</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The headline result reproduces cleanly. From outputs/table4.json (Table IV, 1970 Census, men born 1920-1929, n=247,199), the OLS return to education (col1) is 0.08016 and the TSLS return with EDUC instrumented by the 30 QOB-by-YOB intera...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C2</code></td><td>headline</td><td>qualitative</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>Reading the produced regression outputs table4.json, table5.json, and table6.json, each table pairs OLS columns (1,3,5,7) with matching-covariate TSLS columns (2,4,6,8). Within every matched pair the TSLS EDUC coefficient is close to the...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C3</code></td><td>headline</td><td>scalar_range</td>
+            <td class="st" style="color: #57606a">not attempted</td>
+            <td>deterministic</td>
+            <td>No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Headline enrollment claim derives from Table II difference-in-differences on 1960/1970/1980 Census enrollment micro-data coded by state le...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C4</code></td><td>supporting</td><td>qualitative</td>
+            <td class="st" style="color: #9a6700">partial</td>
+            <td>agent</td>
+            <td>The primary described behavior is unambiguously reproduced: in outputs/figures.json (fig1_2_mean_educ_by_yob_qob) the first-quarter mean education is the lowest or near-lowest quarter in virtually every examined birth year (e.g. YOB30 Q1...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C5</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>Step 6 reproduced Table I via the MA(+2,-2) detrended regression of years of education on quarter-of-birth dummies. In outputs/table1.json the &#39;total_education&#39; blocks give the quarter-1 main effect (relative to quarter 4): for the 1930-...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C6</code></td><td>supporting</td><td>table</td>
+            <td class="st" style="color: #9a6700">partial</td>
+            <td>agent</td>
+            <td>The run produced outputs/table1.json (via step 6, table1_qob_education.R), which regresses each MA(+2,-2)-detrended educational outcome on QTR1-3 dummies for the 1930-39 and 1940-49 cohorts, exactly the Table I design. Cell-by-cell compa...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C7</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The reproduced Table I (codebase/outputs/table1.json) high-school-graduate blocks give the quarter-1 main effect coef_I = -0.01879164 (SE 0.0022) for the 1930-1939 cohort and coef_I = -0.01414143 (SE 0.00145) for the 1940-1949 cohort, i....</td>
+          </tr>
+        
+          <tr>
+            <td><code>C8</code></td><td>supporting</td><td>qualitative</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>From /workspace/output/replication/codebase/outputs/table1.json, the compulsory-schooling outcomes reproduce the strong negative-Q1 seasonal pattern (total_education coef_I=-0.11941612 [1930s] and -0.08441265 [1940s]; high_school_graduat...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C9</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #57606a">not attempted</td>
+            <td>deterministic</td>
+            <td>No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Table II school-enrollment difference-in-differences (1944/1954/1964 cohorts) requires the 1960/1970/1980 enrollment samples with state co...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C10</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #57606a">not attempted</td>
+            <td>deterministic</td>
+            <td>No plan step targeted this claim; the planner marked it BLOCKED (counts as a reproducibility gap): Age-at-first-grade tabulation for boys born 1952 comes from the 1960 Census; the repo ships no 1960 Census data or tabulation script.</td>
+          </tr>
+        
+          <tr>
+            <td><code>C11</code></td><td>supporting</td><td>table</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>Step 5 (table3_wald.R) ran successfully (exit_code 0) and wrote outputs/table3.json. The expected output/replication/table3_panelA.csv was not produced, but the equivalent evidence is in /workspace/output/replication/codebase/outputs/tab...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C12</code></td><td>supporting</td><td>table</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The run produced Table III Panel B in /workspace/output/replication/codebase/outputs/table3.json (panelB block), computed by table3_wald.R on the 1980 Census extract (men born 1930-1939, N=329,509, matching the repo&#39;s asciiqob.txt). Ever...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C13</code></td><td>supporting</td><td>table</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The pipeline ported &#39;QOB Table IV.do&#39; to R (reg-&gt;lm, ivregress 2sls-&gt;AER::ivreg) in port_table4.R and produced outputs/table4.json on the 1970 Census extract of men born 1920-1929 with N=247,199 (matching the claim exactly). The eight ED...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C14</code></td><td>supporting</td><td>table</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The run reproduced Table V by running the OLS/TSLS regressions on the 1980 Census extract (N=329,509, men born 1930-1939) with results written to output/replication/codebase/outputs/table5.json. The EDUC coefficient in all eight columns ...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C15</code></td><td>supporting</td><td>table</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The expected file output/replication/table6.csv was not written, but the run produced the equivalent evidence in /workspace/output/replication/codebase/outputs/table6.json (step 4, port_table6.R, exit 0). The EDUC coefficients there are ...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C16</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #8250df">out of scope</td>
+            <td>deterministic</td>
+            <td>No plan step targeted this claim; treated as out_of_scope (excluded from the score, not a failure): Table VII (seasonal pattern varying by state of birth: 180 QOB-by-state/QOB-by-year instruments + 50 state dummies) is a robustness exten...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C17</code></td><td>supporting</td><td>qualitative</td>
+            <td class="st" style="color: #8250df">out of scope</td>
+            <td>deterministic</td>
+            <td>No plan step targeted this claim; treated as out_of_scope (excluded from the score, not a failure): Table VIII (black men subsample) is a robustness subsample with no shipped script; deprioritized.</td>
+          </tr>
+        
+          <tr>
+            <td><code>C18</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #8250df">out of scope</td>
+            <td>deterministic</td>
+            <td>No plan step targeted this claim; treated as out_of_scope (excluded from the score, not a failure): Log-weeks-worked TSLS variant (Table VII col 6) is a robustness check requiring a weeks-worked dependent variable and the Table VII speci...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C19</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #8250df">out of scope</td>
+            <td>deterministic</td>
+            <td>No plan step targeted this claim; treated as out_of_scope (excluded from the score, not a failure): OLS return for men with nine-to-twelve years of schooling is a footnote robustness check with no shipped script; deprioritized.</td>
+          </tr>
+        
+          <tr>
+            <td><code>C20</code></td><td>supporting</td><td>qualitative</td>
+            <td class="st" style="color: #8250df">out of scope</td>
+            <td>deterministic</td>
+            <td>No plan step targeted this claim; treated as out_of_scope (excluded from the score, not a failure): College-graduate falsification F-test (quarter of birth in an earnings regression) is a control experiment with no shipped script; the an...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C21</code></td><td>supporting</td><td>scalar</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The replication ported the column-5 OLS earnings specifications (log weekly wage on education plus covariates and year-of-birth dummies) for prime-age men and tested the joint significance of the three added quarter-of-birth dummies. For...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C22</code></td><td>supporting</td><td>figure</td>
+            <td class="st" style="color: #1a7f37">match</td>
+            <td>agent</td>
+            <td>The produced figure output/replication/codebase/outputs/figure5_wage.png reproduces Angrist-Krueger Figure V: &#39;Mean ln weekly wage by year and quarter of birth (1980 Census)&#39;, with year of birth (1930-1949) on the x-axis, mean ln(weekly ...</td>
+          </tr>
+        
+          <tr>
+            <td><code>C23</code></td><td>supporting</td><td>figure</td>
+            <td class="st" style="color: #9a6700">partial</td>
+            <td>agent</td>
+            <td>The replication produced the detrended-schooling figure at output/replication/codebase/outputs/figure4_detrended.png (titled &#39;Figure IV: Detrended education, birth years 1930-1949&#39;) plus the underlying data in figures.json (fig4_detrende...</td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+  </details>
+
+  
+  <details>
+    <summary>Replication run (7/7 steps, 291s)</summary>
+    <div class="inner">
+      <p class="sub">Python 3.12.8 · GPU NVIDIA RTX A6000 (x4) - not needed; this is a CPU/econometrics replication · haven 2.5.5, AER 1.2-17, ivreg 0.6-8, fixest 0.14.2, data.table 1.18.4</p>
+      <table>
+        <thead><tr><th>Step</th><th>What it did</th><th>Result</th><th>Time</th></tr></thead>
+        <tbody><tr><td>1</td><td>Set up working copy + R env; load NEW7080.dta, rename per .do block, cross-tab CENSUS x cohort</td><td class="st" style="color: #1a7f37">ok</td><td>20s</td></tr><tr><td>2</td><td>Port &#39;QOB Table IV.do&#39; to R (1970 Census, men born 1920-1929); 8 specs (OLS+TSLS) + QOB joint F-test</td><td class="st" style="color: #1a7f37">ok</td><td>51s</td></tr><tr><td>3</td><td>Port &#39;QOB Table V.do&#39; (1980 Census, men born 1930-1939); 8 specs + QOB joint F-test</td><td class="st" style="color: #1a7f37">ok</td><td>60s</td></tr><tr><td>4</td><td>Port &#39;QOB Table VI.do&#39; (1980 Census, men born 1940-1949); 8 specs</td><td class="st" style="color: #1a7f37">ok</td><td>75s</td></tr><tr><td>5</td><td>Table III Wald estimates: group means (Q1 vs Q2-4) of ln wage and education, Wald ratio, bivariate OLS. Panel A=1970/1920-29, Panel B=1980/1930-39</td><td class="st" style="color: #1a7f37">ok</td><td>25s</td></tr><tr><td>6</td><td>Table I quarter-of-birth effects on educational outcomes (1980 Census, cohorts 1930-39 &amp; 1940-49). MA(+2,-2) detrend of cohort-quarter means; LPM/OLS of detrended outcome on QTR1-3; joint F-test.</td><td class="st" style="color: #1a7f37">ok</td><td>30s</td></tr><tr><td>7</td><td>Descriptive season-of-birth series behind Figures I, II, IV, V (1980 Census, born 1930-1949): cell means of EDUC and LWKLYWGE by (YOB,QOB), MA(+2,-2) detrend, Q1-dip count, age-earnings slopes.</td><td class="st" style="color: #1a7f37">ok</td><td>30s</td></tr></tbody>
+      </table>
+    </div>
+  </details>
+  
+
+  
+
+  <details>
+    <summary>Where to look (artifacts)</summary>
+    <div class="inner refs">
+      <p>The full machine-readable record is on disk next to this report:</p>
+      <ul>
+        <li><code>verify/verdicts.json</code> — every claim verdict, with the grader's cited rationale.</li>
+        <li><code>verify/replication_score.json</code> — the score and tier breakdown.</li>
+        <li><code>replication/replication_log.json</code> — step-by-step execution, with the fixes applied.</li>
+        <li><code>replication/codebase.diff</code> — every change made to the provided code.</li>
+        
+        
+        <li><code>replication/codebase/</code> — the patched code that was actually run.</li>
+      </ul>
+    </div>
+  </details>
+
+  <footer>Generated by Veritas</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{
+  "claim_id": "C23",
+  "status": "partial",
+  "structured": {
+    "file_exists": false,
+    "evidence_found": true,
+    "file_path_checked": [
+      "output/replication/codebase/outputs/figure4_detrended.png",
+      "output/replication/codebase/outputs/figures.json"
+    ],
+    "structural_features_present": [
+      "Line/marker plot of detrended education by chronological year-quarter index",
+      "Y-axis = 'Education deviation from MA(+2,-2)'",
+      "Quarter-of-birth labels (1,2,3,4) on each point",
+      "Zero reference (dashed) line marking the MA-predicted trend",
+      "Q1 markers systematically below zero (below MA-predicted value) while Q3/Q4 tend to be above",
+      "Q1-below-MA count reproduced: 18 of 19 examined birth years"
+    ],
+    "structural_features_missing": [
+      "Three-panel layout (1930s / 1940s / 1950s cohorts) of paper's Figure IV \u2014 produced figure is a single panel",
+      "Coverage of 1950-1959 cohorts \u2014 shipped census extract spans only birth years 1930-1949, so the full 29-birth-year count could not be reproduced",
+      "Exact 27-of-29 count (produced evidence covers 19 birth years, yielding 18/19)"
+    ],
+    "structural_match": true
+  },
+  "rationale": "The replication produced the detrended-schooling figure at output/replication/codebase/outputs/figure4_detrended.png (titled 'Figure IV: Detrended education, birth years 1930-1949') plus the underlying data in figures.json (fig4_detrended_education). The figure reproduces the paper's key structural feature: each quarter's average education is plotted as a deviation from the two-sided MA(+2,-2) trend (dashed zero line), and the first-quarter (labelled '1') points sit below the trend in the large majority of years while Q3/Q4 sit above. I recomputed the count from the shipped data: of the 19 birth years that have an MA trend (1931-1949; 1930 Q1 is a moving-average edge with no trend), 18 have Q1 below the MA-predicted value and only 1949 Q1 is above \u2014 matching the JSON's fig4_q1_below_ma = {count:18, total:19}. This 18/19 (~95%) reproduces the qualitative pattern behind the paper's '27 of 29' (~93%) very closely. It is graded partial rather than match because the shipped census extract covers only birth years 1930-1949 (figures.json note: 'the 1950-1959 panels of Figures III/IV ... are NOT reproducible from this extract'), so the figure is a single panel over 19 years rather than the paper's three-panel 1930-1959 figure, and the exact 27-of-29 count cannot be produced from the available data. The pattern and method are faithfully reproduced; only the full data coverage and multi-panel assembly are missing. fix_severity.json records only a benign Stata-to-R port with no methodological defect.",
+  "evidence_refs": [
+    "output/replication/codebase/outputs/figure4_detrended.png",
+    "output/replication/codebase/outputs/figures.json",
+    "output/assess/fix_severity.json"
+  ],
+  "graded_by": "agent"
+}

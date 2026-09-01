@@ -1,0 +1,58 @@
+{
+  "instruction_summary": "Build the honest 'living version' of Angrist-Krueger (1991): trace the OLS return to schooling (C4) for men 40-49 from 1969/1979 package data to 2024 ACS PUMS (Lane A); re-estimate the IV claims (C3/C1) on the original data with modern weak-IV-robust inference (first-stage F, LIML, Anderson-Rubin sets) (Lane B); and document the death of the QOB instrument via 16-17yo enrollment 1960-2024 (C2, Lane C).",
+  "completed": true,
+  "steps": [
+    {"description": "Read replication artifacts (logs, verdicts, table4/5/6.json, qob_common.R, the .do files) to reuse the ported pipeline and package estimates", "command": "cat replication_log.json / verdicts.json / outputs/*.json", "exit_code": 0, "outputs": []},
+    {"description": "Set up Python venv (pandas, numpy, statsmodels, matplotlib, scipy, requests); R 4.6.1 already present", "command": "uv venv /workspace/.venv && uv pip install pandas numpy statsmodels matplotlib requests", "exit_code": 0, "outputs": ["/workspace/.venv"]},
+    {"description": "Lane A+C: download & stream-process ACS 1-Year PUMS 2005-2024 (per-year weighted HC1 OLS educ return, spec i/ii; weighted 16/17yo enrollment shares); process-and-delete each ~500-630MB zip", "command": "python3 acs_process.py <years>", "exit_code": 0, "outputs": ["results/acs_ols_by_year.csv", "results/acs_enrollment_by_year.csv"]},
+    {"description": "Fixed 2005-2007 WKW handling (continuous weeks 1-52, not 6-cat intervals) and skipped the non-existent 2020 1-year PUMS (Census COVID gap); re-ran those years", "command": "python3 acs_process.py 2005 2006 2007 2021 2022 2023", "exit_code": 0, "outputs": ["results/acs_ols_by_year.csv"]},
+    {"description": "Lane B: OLS/2SLS/LIML/first-stage-F/Anderson-Rubin sets + detrended Q1 education deficit for the three NEW7080 cohorts (FWL residualization, hand-rolled k-class & AR grid)", "command": "python3 lane_b.py", "exit_code": 0, "outputs": ["results/lane_b_results.json"]},
+    {"description": "Confirmed the 1940-49 AR confidence set is empty over [-0.5,0.8] (min AR 3.11 > crit 1.46, over-ID rejected)", "command": "python3 -c '<wide AR grid>'", "exit_code": 0, "outputs": []},
+    {"description": "SMSA bridge check + assembled tidy estimates_by_window.csv and 3-panel flagship figure and findings.md", "command": "python3 build_outputs.py", "exit_code": 0, "outputs": ["results/estimates_by_window.csv", "results/ak91_living.png", "results/ak91_living.pdf", "results/findings.md"]}
+  ],
+  "key_results": {
+    "package_OLS_return_1969_col5": "0.0701 (target 0.0701)",
+    "package_OLS_return_1979_col5": "0.0632 (target 0.0632)",
+    "ACS_OLS_return_2024_controls": "0.0923",
+    "ACS_OLS_return_2024_bivariate": "0.0998",
+    "ACS_OLS_return_peak_~2010-2013": "~0.120",
+    "first_stage_F_1920s_1930s_1940s": "4.55 / 4.75 / 6.85 (weak instruments)",
+    "AR95_set_1920s": "[0.010, 0.122]",
+    "AR95_set_1930s": "[-0.002, 0.178]",
+    "AR95_set_1940s": "empty (over-ID rejected, min AR 3.11 > crit 1.46)",
+    "LIML_1920s_1930s_1940s": "0.0658 / 0.0838 / 0.0286",
+    "Q1_education_deficit_1920s_1930s_1940s": "-0.167 / -0.119 / -0.084 (monotone attenuation)",
+    "enrollment_age16_2024_ACS": "0.972",
+    "enrollment_age16_Table_II_1960_1970_1980": "0.876-0.910 / 0.942-0.958 / 0.950-0.962",
+    "SMSA_bridge_shift_1979": "+0.0026 (< 0.005 threshold)"
+  },
+  "comparison_to_original": [
+    {"quantity": "1969 OLS return to schooling (col-5 spec)", "original": "0.07012", "followup": "0.0701", "source_file": "/workspace/eval/replication/codebase/outputs/table4.json", "note": "reused as Lane A 1969 anchor; recompute matches"},
+    {"quantity": "1979 OLS return to schooling (col-5 spec)", "original": "0.06325", "followup": "0.0632", "source_file": "/workspace/eval/replication/codebase/outputs/table5.json", "note": "Lane A 1979 anchor; C4 benchmark"},
+    {"quantity": "1969 TSLS (col-6, 30 QOBxYOB instruments)", "original": "0.06685", "followup": "0.0669", "source_file": "/workspace/eval/replication/codebase/outputs/table4.json", "note": "recomputed as Lane B cross-check; matches"},
+    {"quantity": "1979 TSLS (col-6)", "original": "0.08055", "followup": "0.0806", "source_file": "/workspace/eval/replication/codebase/outputs/table5.json", "note": "matches"},
+    {"quantity": "1940-49 TSLS (col-6)", "original": "0.03927", "followup": "0.0393", "source_file": "/workspace/eval/replication/codebase/outputs/table6.json", "note": "matches"},
+    {"quantity": "Q1 detrended education deficit, 1930s", "original": "-0.11942", "followup": "-0.119", "source_file": "/workspace/eval/replication/codebase/outputs/table1.json", "note": "matches; paper ~-0.124"},
+    {"quantity": "Q1 detrended education deficit, 1940s", "original": "-0.08441", "followup": "-0.084", "source_file": "/workspace/eval/replication/codebase/outputs/table1.json", "note": "matches; paper ~-0.085"},
+    {"quantity": "first-stage partial F on 30 instruments", "original": "not computed", "followup": "4.55 / 4.75 / 6.85", "source_file": "n/a (new diagnostic)", "note": "weak instruments (Bound-Jaeger-Baker); new to follow-up"},
+    {"quantity": "weak-IV-robust CI (Anderson-Rubin)", "original": "not computed", "followup": "[0.010,0.122] / [-0.002,0.178] / empty", "source_file": "n/a (new)", "note": "IV<->OLS conclusion not sharply identified; 1940s AR set empty"},
+    {"quantity": "modern OLS return to schooling (men 40-49), 2024", "original": "n/a (ended 1979)", "followup": "0.092 (controls) / 0.100 (bivariate)", "source_file": "results/acs_ols_by_year.csv", "note": "roughly doubled vs 1979's 0.063"}
+  ],
+  "artifacts": [
+    "/workspace/eval/followup/001-living-update/results/estimates_by_window.csv",
+    "/workspace/eval/followup/001-living-update/results/ak91_living.png",
+    "/workspace/eval/followup/001-living-update/results/ak91_living.pdf",
+    "/workspace/eval/followup/001-living-update/results/findings.md",
+    "/workspace/eval/followup/001-living-update/results/acs_ols_by_year.csv",
+    "/workspace/eval/followup/001-living-update/results/acs_enrollment_by_year.csv",
+    "/workspace/eval/followup/001-living-update/results/lane_b_results.json"
+  ],
+  "deviations": [
+    "2005-2007 ACS WKW is continuous weeks (1-52), not the 6-category interval the instruction assumed (that coding began 2008); verified in-data and used WKW directly, restoring ~181k-record samples for those years.",
+    "2020 ACS 1-Year PUMS does not exist (Census released no standard 2020 1-year file due to COVID collection disruption); modern series is 2005-2019 + 2021-2024, with 2024 as the 'now' endpoint.",
+    "REGION absent in 2005-2006 ACS; Census region derived from state FIPS (ST).",
+    "Panel B uses a year-of-birth x-axis instead of the shared calendar-year axis, because first-stage deficits are a function of birth cohort (1920-1949), which predates the 1960-2025 calendar axis.",
+    "Optional CPS ASEC cross-check (section 3.3) not run; Lanes A/B/C completed in full.",
+    "LIML, first-stage F, and Anderson-Rubin sets computed by hand (closed-form FWL residualization) rather than linearmodels/ivmodels; validated by exact OLS/TSLS agreement with the replication."
+  ]
+}

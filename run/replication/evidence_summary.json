@@ -1,0 +1,66 @@
+{
+  "paper": "Angrist & Krueger (1991), 'Does Compulsory School Attendance Affect Schooling and Earnings?', QJE 106(4):979-1014, DOI 10.2307/2937954",
+  "environment": {
+    "language": "R",
+    "r_version": "4.6.1 (2026-06-24)",
+    "python_version": "3.12.8",
+    "gpu_available": true,
+    "gpu_model": "NVIDIA RTX A6000 (x4) - not needed; this is a CPU/econometrics replication",
+    "key_packages": {
+      "haven": "2.5.5",
+      "AER": "1.2-17",
+      "ivreg": "0.6-8",
+      "fixest": "0.14.2",
+      "data.table": "1.18.4",
+      "sandwich": "3.1-3",
+      "lmtest": "0.9-40",
+      "car": "3.1-5",
+      "jsonlite": "2.0.0"
+    }
+  },
+  "data": {
+    "source": "NEW7080/NEW7080.dta (Angrist Data Archive), 1,063,634 obs x 27 vars",
+    "census_1970_1920_29": 247199,
+    "census_1980_1930_39": 329509,
+    "census_1980_1940_49": 486926
+  },
+  "results_summary": {
+    "table_IV_1970_1920_29": {
+      "OLS_col1": 0.08016, "TSLS_col2": 0.07686, "TSLS_col4": 0.13104,
+      "OLS_col5": 0.07012, "TSLS_col6": 0.06685, "TSLS_col8": 0.10072,
+      "qob_Ftest_col5": {"F": 0.4401, "p": 0.7243},
+      "published_comparison": "matches AK Table IV (OLS ~0.080, Wald col2 ~0.077, col8 ~0.101)"
+    },
+    "table_V_1980_1930_39": {
+      "OLS_col1": 0.07108, "TSLS_col2": 0.08912, "TSLS_col4": 0.07600,
+      "OLS_col5": 0.06325, "TSLS_col6": 0.08055, "TSLS_col8": 0.05995,
+      "qob_Ftest_col5": {"F": 1.828, "p": 0.1396},
+      "published_comparison": "matches AK Table V (col1 0.071, col2 0.089, col6 0.081)"
+    },
+    "table_VI_1980_1940_49": {
+      "OLS_col1": 0.05734, "TSLS_col2": 0.05530, "TSLS_col4": 0.09480,
+      "OLS_col5": 0.05205, "TSLS_col6": 0.03927, "TSLS_col8": 0.07788,
+      "qob_Ftest_col5": {"F": 14.05, "p": 3.7e-09},
+      "published_comparison": "matches AK Table VI (col1 0.057, col2 0.055, col4 0.095, col8 0.078); QOB significant in wage eq for this cohort"
+    },
+    "table_III_wald": {
+      "panelA_1970": {"wald": 0.07151, "wald_se": 0.02407, "ols": 0.08011, "educ_diff": -0.12556, "wage_diff": -0.00898},
+      "panelB_1980": {"wald": 0.10199, "wald_se": 0.02522, "ols": 0.07085, "educ_diff": -0.10882, "wage_diff": -0.01110},
+      "published_comparison": "matches AK Table III (Panel A Wald 0.0715/OLS 0.0801; Panel B Wald 0.1020/OLS 0.0709)"
+    },
+    "table_I_education_outcomes": {
+      "total_education_1930_39": {"I": -0.11942, "II": -0.08113, "III": 0.00145, "F": 25.06},
+      "total_education_1940_49": {"I": -0.08441, "II": -0.02716, "III": -0.01884, "F": 16.25},
+      "pattern": "Q1 negative for total education & HS graduation in both cohorts; near-zero for college/masters/doctoral (as expected)"
+    },
+    "figures": {
+      "fig4_q1_below_MA": "18 of 19 birth-years show Q1 education below the MA(+2,-2) prediction",
+      "fig5_age_earnings_slope_younger_1940_49": -0.02424,
+      "fig5_age_earnings_slope_older_1930_39": -0.00068,
+      "fig5_q1_minus_rest_wage": -0.00323,
+      "pattern": "recurring first-quarter education dip; rising age-earnings profile for younger cohort that flattens for older cohort; Q1 births earn slightly less"
+    }
+  },
+  "reproducibility_verdict": "REPRODUCED. All 7 steps ran to completion at full scale (no downsizing). The three IV/TSLS regression tables (IV, V, VI), the Table III Wald estimates, the Table I detrended QOB-on-education regressions, and the Figure I/II/IV/V descriptive series all reproduce the published Angrist-Krueger (1991) results closely. Only documented limitation: the shipped extract spans birth years 1930-1949 only, so the 1950s panels of Figures III/IV are not reproducible from this data (noted in the plan).",
+  "notes_on_fixes": "No code errors required patching; the three Stata .do files were ported to R (reg->lm, ivregress 2sls->AER::ivreg) and hardcoded Windows paths replaced with the relative dataset path. The 'some instrumental variables are collinear' ivreg warning is benign (AGEQ/AGEQSQ overlap with the YOB-dummy + QOB-interaction instrument set) and matches Stata's ivregress handling; results are unaffected and match the paper."
+}

@@ -1,0 +1,15 @@
+parameter,symbol,paper_era_1980,yr2026_2024,moment_or_source,label
+Return to a year of schooling (skill price),rho,0.0632,0.0923,"OLS col-5 / ACS controls, men 40-49; 001 table5.json & acs_ols_by_year.csv",ESTIMATED
+Peak modern return,rho_max,-,0.1200 (2012),ACS controls peak; 001 acs_ols_by_year.csv,ESTIMATED
+Bivariate return,rho_biv,0.0709,0.0998,AK Table III / ACS bivariate 2024; 001,ESTIMATED
+Mean years of schooling (men 40-49),S_bar,12.77,13.88,NEW7080 1980c 1930-39 / ACS 2024; package_moments & acs_supply_moments,ESTIMATED
+"College share (>=16 yrs), men 40-49",p_coll,0.234,0.404,NEW7080 / ACS 2024; package_moments & acs_supply_moments,ESTIMATED
+"Relative supply, log college odds",s,-1.183,-0.389,log(p/(1-p)) of college share,ESTIMATED
+CES elasticity of substitution (college/non-college),sigma,2.0,2.0,structural constant; Katz-Murphy/AKK ~1.5-2.5; OOS-optimal here,CALIBRATED
+Implied relative-demand index D = sigma*rho + s,D,-1.057,-0.205,"identity given rho,s,sigma; SBTC trend",CALIBRATED
+"Demand-index trend (per year), 2005-2014 fit",g1,0.0223,0.0223,"slope of D on t, ACS 2005-2014; validation.json",CALIBRATED
+First-stage Q1 education deficit (instrument bite),delta_Q1,-0.119,~0 (enroll 0.97),001 lane_b q1_attenuation 1930-39 / enrollment near-universal,ESTIMATED
+First-stage partial F (30 QOBxYOB),F,4.75,n/a (no QOB post-1980),001 lane_b_results.json 1930-39,ESTIMATED
+Weak-IV-robust 95% identified set (AR),AR,"[-0.002, 0.178]",n/a,001 lane_b_results.json 1930-39,ESTIMATED
+Ability-bias wedge (OLS - TSLS),bias,-0.017,unidentified,OLS 0.0632 - TSLS 0.0806; 001 lane_b (sign: TSLS>OLS),ESTIMATED
+Between-schooling share of wage variance,rho^2 Var(S)/Var(lnw),0.093,0.121,price x quantity; inequality_decomp.csv (peak 0.169 in 2011),ESTIMATED

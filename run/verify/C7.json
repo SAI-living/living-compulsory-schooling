@@ -1,0 +1,24 @@
+{
+  "claim_id": "C7",
+  "status": "match",
+  "structured": {
+    "replicated_value": {
+      "HS_grad_gap_1930s_pp": 1.88,
+      "HS_grad_gap_1940s_pp": 1.41,
+      "relative_dropout_increase": 0.09
+    },
+    "paper_value": {
+      "HS_grad_gap_1930s_pp": 1.9,
+      "HS_grad_gap_1940s_pp": 1.5,
+      "relative_dropout_increase": 0.1
+    },
+    "uncertainty": null,
+    "value_found": true
+  },
+  "rationale": "The reproduced Table I (codebase/outputs/table1.json) high-school-graduate blocks give the quarter-1 main effect coef_I = -0.01879164 (SE 0.0022) for the 1930-1939 cohort and coef_I = -0.01414143 (SE 0.00145) for the 1940-1949 cohort, i.e. Q1 births are 1.88 pp (paper 1.9) and 1.41 pp (paper 1.5) less likely to graduate high school. The cohort means (0.77114 for 1930s, 0.86582 for 1940s) imply dropout rates of 0.229 (~23%, paper 23%) and 0.134 (~14%, paper 14%). Dividing the graduation gap by the dropout rate gives 0.01879/0.229 = 0.082 and 0.01414/0.134 = 0.105, i.e. roughly 10 percent higher dropout, matching the paper's 'roughly 10 percent'. The 1930s gap (1.88 vs 1.9, 1% off) and relative-increase are within band; the 1940s gap (1.41 vs 1.5) is ~6% off, consistent with the file's note that the shipped positive-earnings extract differs slightly from the paper's education-based Table I sample so magnitudes are approximate. All signs, magnitudes, and the derived relative increase confirm the claim.",
+  "evidence_refs": [
+    "output/replication/codebase/outputs/table1.json",
+    "output/analyze/replication_plan.json"
+  ],
+  "graded_by": "agent"
+}

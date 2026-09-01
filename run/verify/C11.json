@@ -1,0 +1,34 @@
+{
+  "claim_id": "C11",
+  "status": "match",
+  "structured": {
+    "replicated_table": {
+      "ln(weekly wage) | Q1": 5.1485,
+      "ln(weekly wage) | Q2-Q4": 5.1574,
+      "ln(weekly wage) | Difference (Q1-rest)": -0.00898,
+      "Education (years) | Q1": 11.3996,
+      "Education (years) | Q2-Q4": 11.5252,
+      "Education (years) | Difference (Q1-rest)": -0.1256,
+      "Wald est. of return to education | Difference (Q1-rest)": 0.0715,
+      "OLS return to education | Difference (Q1-rest)": 0.0801
+    },
+    "paper_table": {
+      "ln(weekly wage) | Q1": 5.1484,
+      "ln(weekly wage) | Q2-Q4": 5.1574,
+      "ln(weekly wage) | Difference (Q1-rest)": -0.00898,
+      "Education (years) | Q1": 11.3996,
+      "Education (years) | Q2-Q4": 11.5252,
+      "Education (years) | Difference (Q1-rest)": -0.1256,
+      "Wald est. of return to education | Difference (Q1-rest)": 0.0715,
+      "OLS return to education | Difference (Q1-rest)": 0.0801
+    },
+    "value_found": true
+  },
+  "rationale": "Step 5 (table3_wald.R) ran successfully (exit_code 0) and wrote outputs/table3.json. The expected output/replication/table3_panelA.csv was not produced, but the equivalent evidence is in /workspace/output/replication/codebase/outputs/table3.json (panelA). N=247,199 matches exactly. Every Panel A cell matches the paper within well under 5%: ln(wage) Q1=5.14847 vs 5.1484, Q2-Q4=5.15745 vs 5.1574, diff=-0.00897887 vs -0.00898; education Q1=11.39960 vs 11.3996, Q2-Q4=11.52515 vs 11.5252, diff=-0.1255553 vs -0.1256; Wald return=0.07151331 vs 0.0715; OLS return=0.08011118 vs 0.0801. The produced Wald (0.0715) is slightly below but close to OLS (0.0801), exactly as claimed. No fixes were flagged for this step (fixes_applied empty, code_modified true only for authoring the script). All cells are a match.",
+  "evidence_refs": [
+    "output/replication/codebase/outputs/table3.json",
+    "output/replication/codebase/table3_wald.R",
+    "output/replication/replication_log.json"
+  ],
+  "graded_by": "agent"
+}

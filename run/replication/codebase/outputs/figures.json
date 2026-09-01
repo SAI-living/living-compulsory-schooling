@@ -1,0 +1,1536 @@
+{
+  "census": 1980,
+  "cohorts": "1930-1949",
+  "note": "Shipped extract spans only birth years 1930-1949; the 1950-1959 panels of Figures III/IV (secularly declining cohorts) are NOT reproducible from this extract.",
+  "fig1_2_mean_educ_by_yob_qob": [
+    {
+      "YOB": 30,
+      "QOB": 1,
+      "mean_educ": 12.280405,
+      "N": 8395
+    },
+    {
+      "YOB": 30,
+      "QOB": 2,
+      "mean_educ": 12.42841829,
+      "N": 8396
+    },
+    {
+      "YOB": 30,
+      "QOB": 3,
+      "mean_educ": 12.49185967,
+      "N": 8722
+    },
+    {
+      "YOB": 30,
+      "QOB": 4,
+      "mean_educ": 12.62467549,
+      "N": 8089
+    },
+    {
+      "YOB": 31,
+      "QOB": 1,
+      "mean_educ": 12.54043444,
+      "N": 7642
+    },
+    {
+      "YOB": 31,
+      "QOB": 2,
+      "mean_educ": 12.53104532,
+      "N": 7634
+    },
+    {
+      "YOB": 31,
+      "QOB": 3,
+      "mean_educ": 12.68671679,
+      "N": 7980
+    },
+    {
+      "YOB": 31,
+      "QOB": 4,
+      "mean_educ": 12.61211956,
+      "N": 7327
+    },
+    {
+      "YOB": 32,
+      "QOB": 1,
+      "mean_educ": 12.53393117,
+      "N": 8252
+    },
+    {
+      "YOB": 32,
+      "QOB": 2,
+      "mean_educ": 12.60959876,
+      "N": 7751
+    },
+    {
+      "YOB": 32,
+      "QOB": 3,
+      "mean_educ": 12.66045001,
+      "N": 8311
+    },
+    {
+      "YOB": 32,
+      "QOB": 4,
+      "mean_educ": 12.72711156,
+      "N": 7897
+    },
+    {
+      "YOB": 33,
+      "QOB": 1,
+      "mean_educ": 12.67319007,
+      "N": 7818
+    },
+    {
+      "YOB": 33,
+      "QOB": 2,
+      "mean_educ": 12.63470681,
+      "N": 7572
+    },
+    {
+      "YOB": 33,
+      "QOB": 3,
+      "mean_educ": 12.7539518,
+      "N": 7718
+    },
+    {
+      "YOB": 33,
+      "QOB": 4,
+      "mean_educ": 12.69226743,
+      "N": 7643
+    },
+    {
+      "YOB": 34,
+      "QOB": 1,
+      "mean_educ": 12.64726291,
+      "N": 7782
+    },
+    {
+      "YOB": 34,
+      "QOB": 2,
+      "mean_educ": 12.72796733,
+      "N": 7591
+    },
+    {
+      "YOB": 34,
+      "QOB": 3,
+      "mean_educ": 12.70804815,
+      "N": 8474
+    },
+    {
+      "YOB": 34,
+      "QOB": 4,
+      "mean_educ": 12.79786839,
+      "N": 8069
+    },
+    {
+      "YOB": 35,
+      "QOB": 1,
+      "mean_educ": 12.65090682,
+      "N": 7995
+    },
+    {
+      "YOB": 35,
+      "QOB": 2,
+      "mean_educ": 12.79692577,
+      "N": 8002
+    },
+    {
+      "YOB": 35,
+      "QOB": 3,
+      "mean_educ": 12.86135123,
+      "N": 8792
+    },
+    {
+      "YOB": 35,
+      "QOB": 4,
+      "mean_educ": 12.81963928,
+      "N": 7984
+    },
+    {
+      "YOB": 36,
+      "QOB": 1,
+      "mean_educ": 12.74304199,
+      "N": 8192
+    },
+    {
+      "YOB": 36,
+      "QOB": 2,
+      "mean_educ": 12.81107615,
+      "N": 7945
+    },
+    {
+      "YOB": 36,
+      "QOB": 3,
+      "mean_educ": 12.88623383,
+      "N": 8579
+    },
+    {
+      "YOB": 36,
+      "QOB": 4,
+      "mean_educ": 12.92801508,
+      "N": 7960
+    },
+    {
+      "YOB": 37,
+      "QOB": 1,
+      "mean_educ": 12.8322951,
+      "N": 8187
+    },
+    {
+      "YOB": 37,
+      "QOB": 2,
+      "mean_educ": 12.84404791,
+      "N": 8182
+    },
+    {
+      "YOB": 37,
+      "QOB": 3,
+      "mean_educ": 12.96217212,
+      "N": 9226
+    },
+    {
+      "YOB": 37,
+      "QOB": 4,
+      "mean_educ": 12.97098161,
+      "N": 8374
+    },
+    {
+      "YOB": 38,
+      "QOB": 1,
+      "mean_educ": 12.93867708,
+      "N": 8708
+    },
+    {
+      "YOB": 38,
+      "QOB": 2,
+      "mean_educ": 13.00766329,
+      "N": 8482
+    },
+    {
+      "YOB": 38,
+      "QOB": 3,
+      "mean_educ": 12.98655426,
+      "N": 9371
+    },
+    {
+      "YOB": 38,
+      "QOB": 4,
+      "mean_educ": 13.03013161,
+      "N": 8662
+    },
+    {
+      "YOB": 39,
+      "QOB": 1,
+      "mean_educ": 13.00298851,
+      "N": 8700
+    },
+    {
+      "YOB": 39,
+      "QOB": 2,
+      "mean_educ": 13.01339858,
+      "N": 8583
+    },
+    {
+      "YOB": 39,
+      "QOB": 3,
+      "mean_educ": 12.98925953,
+      "N": 9683
+    },
+    {
+      "YOB": 39,
+      "QOB": 4,
+      "mean_educ": 13.11652902,
+      "N": 8839
+    },
+    {
+      "YOB": 40,
+      "QOB": 1,
+      "mean_educ": 13.01938732,
+      "N": 9336
+    },
+    {
+      "YOB": 40,
+      "QOB": 2,
+      "mean_educ": 13.05557935,
+      "N": 9338
+    },
+    {
+      "YOB": 40,
+      "QOB": 3,
+      "mean_educ": 13.15915975,
+      "N": 10235
+    },
+    {
+      "YOB": 40,
+      "QOB": 4,
+      "mean_educ": 13.26554947,
+      "N": 9309
+    },
+    {
+      "YOB": 41,
+      "QOB": 1,
+      "mean_educ": 13.09750348,
+      "N": 9333
+    },
+    {
+      "YOB": 41,
+      "QOB": 2,
+      "mean_educ": 13.22874317,
+      "N": 9150
+    },
+    {
+      "YOB": 41,
+      "QOB": 3,
+      "mean_educ": 13.26808222,
+      "N": 10314
+    },
+    {
+      "YOB": 41,
+      "QOB": 4,
+      "mean_educ": 13.28727842,
+      "N": 9590
+    },
+    {
+      "YOB": 42,
+      "QOB": 1,
+      "mean_educ": 13.22977409,
+      "N": 10358
+    },
+    {
+      "YOB": 42,
+      "QOB": 2,
+      "mean_educ": 13.39320952,
+      "N": 10338
+    },
+    {
+      "YOB": 42,
+      "QOB": 3,
+      "mean_educ": 13.37497908,
+      "N": 11950
+    },
+    {
+      "YOB": 42,
+      "QOB": 4,
+      "mean_educ": 13.55455868,
+      "N": 12372
+    },
+    {
+      "YOB": 43,
+      "QOB": 1,
+      "mean_educ": 13.42210884,
+      "N": 11760
+    },
+    {
+      "YOB": 43,
+      "QOB": 2,
+      "mean_educ": 13.39649061,
+      "N": 11284
+    },
+    {
+      "YOB": 43,
+      "QOB": 3,
+      "mean_educ": 13.46474702,
+      "N": 12155
+    },
+    {
+      "YOB": 43,
+      "QOB": 4,
+      "mean_educ": 13.48206278,
+      "N": 11150
+    },
+    {
+      "YOB": 44,
+      "QOB": 1,
+      "mean_educ": 13.43870435,
+      "N": 10898
+    },
+    {
+      "YOB": 44,
+      "QOB": 2,
+      "mean_educ": 13.43883661,
+      "N": 10521
+    },
+    {
+      "YOB": 44,
+      "QOB": 3,
+      "mean_educ": 13.47785726,
+      "N": 11742
+    },
+    {
+      "YOB": 44,
+      "QOB": 4,
+      "mean_educ": 13.54783538,
+      "N": 11226
+    },
+    {
+      "YOB": 45,
+      "QOB": 1,
+      "mean_educ": 13.53232739,
+      "N": 10935
+    },
+    {
+      "YOB": 45,
+      "QOB": 2,
+      "mean_educ": 13.66623134,
+      "N": 10720
+    },
+    {
+      "YOB": 45,
+      "QOB": 3,
+      "mean_educ": 13.65071689,
+      "N": 11787
+    },
+    {
+      "YOB": 45,
+      "QOB": 4,
+      "mean_educ": 13.6073487,
+      "N": 11104
+    },
+    {
+      "YOB": 46,
+      "QOB": 1,
+      "mean_educ": 13.61693847,
+      "N": 10792
+    },
+    {
+      "YOB": 46,
+      "QOB": 2,
+      "mean_educ": 13.68905276,
+      "N": 11391
+    },
+    {
+      "YOB": 46,
+      "QOB": 3,
+      "mean_educ": 13.7878946,
+      "N": 15332
+    },
+    {
+      "YOB": 46,
+      "QOB": 4,
+      "mean_educ": 13.85951707,
+      "N": 16607
+    },
+    {
+      "YOB": 47,
+      "QOB": 1,
+      "mean_educ": 13.79662082,
+      "N": 15921
+    },
+    {
+      "YOB": 47,
+      "QOB": 2,
+      "mean_educ": 13.88480622,
+      "N": 14914
+    },
+    {
+      "YOB": 47,
+      "QOB": 3,
+      "mean_educ": 13.7967054,
+      "N": 15662
+    },
+    {
+      "YOB": 47,
+      "QOB": 4,
+      "mean_educ": 13.77293401,
+      "N": 14291
+    },
+    {
+      "YOB": 48,
+      "QOB": 1,
+      "mean_educ": 13.74184555,
+      "N": 14348
+    },
+    {
+      "YOB": 48,
+      "QOB": 2,
+      "mean_educ": 13.81074836,
+      "N": 13416
+    },
+    {
+      "YOB": 48,
+      "QOB": 3,
+      "mean_educ": 13.76381224,
+      "N": 15403
+    },
+    {
+      "YOB": 48,
+      "QOB": 4,
+      "mean_educ": 13.77301205,
+      "N": 14525
+    },
+    {
+      "YOB": 49,
+      "QOB": 1,
+      "mean_educ": 13.77804687,
+      "N": 14039
+    },
+    {
+      "YOB": 49,
+      "QOB": 2,
+      "mean_educ": 13.74910158,
+      "N": 13635
+    },
+    {
+      "YOB": 49,
+      "QOB": 3,
+      "mean_educ": 13.75980296,
+      "N": 15225
+    },
+    {
+      "YOB": 49,
+      "QOB": 4,
+      "mean_educ": 13.7446281,
+      "N": 14520
+    }
+  ],
+  "fig4_detrended_education": [
+    {
+      "YOB": 30,
+      "QOB": 1,
+      "mean_educ": 12.280405
+    },
+    {
+      "YOB": 30,
+      "QOB": 2,
+      "mean_educ": 12.42841829
+    },
+    {
+      "YOB": 30,
+      "QOB": 3,
+      "mean_educ": 12.49185967,
+      "ma_trend": 12.46848331,
+      "detrended": 0.02337636
+    },
+    {
+      "YOB": 30,
+      "QOB": 4,
+      "mean_educ": 12.62467549,
+      "ma_trend": 12.49793943,
+      "detrended": 0.12673605
+    },
+    {
+      "YOB": 31,
+      "QOB": 1,
+      "mean_educ": 12.54043444,
+      "ma_trend": 12.58357432,
+      "detrended": -0.04313988
+    },
+    {
+      "YOB": 31,
+      "QOB": 2,
+      "mean_educ": 12.53104532,
+      "ma_trend": 12.61598657,
+      "detrended": -0.08494125
+    },
+    {
+      "YOB": 31,
+      "QOB": 3,
+      "mean_educ": 12.68671679,
+      "ma_trend": 12.55438262,
+      "detrended": 0.13233417
+    },
+    {
+      "YOB": 31,
+      "QOB": 4,
+      "mean_educ": 12.61211956,
+      "ma_trend": 12.59032301,
+      "detrended": 0.02179655
+    },
+    {
+      "YOB": 32,
+      "QOB": 1,
+      "mean_educ": 12.53393117,
+      "ma_trend": 12.64222128,
+      "detrended": -0.10829011
+    },
+    {
+      "YOB": 32,
+      "QOB": 2,
+      "mean_educ": 12.60959876,
+      "ma_trend": 12.63340307,
+      "detrended": -0.02380431
+    },
+    {
+      "YOB": 32,
+      "QOB": 3,
+      "mean_educ": 12.66045001,
+      "ma_trend": 12.63595789,
+      "detrended": 0.02449211
+    },
+    {
+      "YOB": 32,
+      "QOB": 4,
+      "mean_educ": 12.72711156,
+      "ma_trend": 12.64448641,
+      "detrended": 0.08262515
+    },
+    {
+      "YOB": 33,
+      "QOB": 1,
+      "mean_educ": 12.67319007,
+      "ma_trend": 12.69405505,
+      "detrended": -0.02086497
+    },
+    {
+      "YOB": 33,
+      "QOB": 2,
+      "mean_educ": 12.63470681,
+      "ma_trend": 12.71163022,
+      "detrended": -0.0769234
+    },
+    {
+      "YOB": 33,
+      "QOB": 3,
+      "mean_educ": 12.7539518,
+      "ma_trend": 12.66185681,
+      "detrended": 0.09209499
+    },
+    {
+      "YOB": 33,
+      "QOB": 4,
+      "mean_educ": 12.69226743,
+      "ma_trend": 12.69097221,
+      "detrended": 0.00129522
+    },
+    {
+      "YOB": 34,
+      "QOB": 1,
+      "mean_educ": 12.64726291,
+      "ma_trend": 12.72055868,
+      "detrended": -0.07329576
+    },
+    {
+      "YOB": 34,
+      "QOB": 2,
+      "mean_educ": 12.72796733,
+      "ma_trend": 12.71136172,
+      "detrended": 0.01660561
+    },
+    {
+      "YOB": 34,
+      "QOB": 3,
+      "mean_educ": 12.70804815,
+      "ma_trend": 12.70600136,
+      "detrended": 0.00204679
+    },
+    {
+      "YOB": 34,
+      "QOB": 4,
+      "mean_educ": 12.79786839,
+      "ma_trend": 12.72096202,
+      "detrended": 0.07690637
+    },
+    {
+      "YOB": 35,
+      "QOB": 1,
+      "mean_educ": 12.65090682,
+      "ma_trend": 12.79104838,
+      "detrended": -0.14014157
+    },
+    {
+      "YOB": 35,
+      "QOB": 2,
+      "mean_educ": 12.79692577,
+      "ma_trend": 12.78244143,
+      "detrended": 0.01448434
+    },
+    {
+      "YOB": 35,
+      "QOB": 3,
+      "mean_educ": 12.86135123,
+      "ma_trend": 12.75262846,
+      "detrended": 0.10872276
+    },
+    {
+      "YOB": 35,
+      "QOB": 4,
+      "mean_educ": 12.81963928,
+      "ma_trend": 12.80309878,
+      "detrended": 0.01654049
+    },
+    {
+      "YOB": 36,
+      "QOB": 1,
+      "mean_educ": 12.74304199,
+      "ma_trend": 12.84457512,
+      "detrended": -0.10153313
+    },
+    {
+      "YOB": 36,
+      "QOB": 2,
+      "mean_educ": 12.81107615,
+      "ma_trend": 12.84423254,
+      "detrended": -0.03315639
+    },
+    {
+      "YOB": 36,
+      "QOB": 3,
+      "mean_educ": 12.88623383,
+      "ma_trend": 12.82860708,
+      "detrended": 0.05762675
+    },
+    {
+      "YOB": 36,
+      "QOB": 4,
+      "mean_educ": 12.92801508,
+      "ma_trend": 12.84341325,
+      "detrended": 0.08460183
+    },
+    {
+      "YOB": 37,
+      "QOB": 1,
+      "mean_educ": 12.8322951,
+      "ma_trend": 12.90511723,
+      "detrended": -0.07282213
+    },
+    {
+      "YOB": 37,
+      "QOB": 2,
+      "mean_educ": 12.84404791,
+      "ma_trend": 12.92336598,
+      "detrended": -0.07931807
+    },
+    {
+      "YOB": 37,
+      "QOB": 3,
+      "mean_educ": 12.96217212,
+      "ma_trend": 12.89650043,
+      "detrended": 0.0656717
+    },
+    {
+      "YOB": 37,
+      "QOB": 4,
+      "mean_educ": 12.97098161,
+      "ma_trend": 12.9381401,
+      "detrended": 0.03284151
+    },
+    {
+      "YOB": 38,
+      "QOB": 1,
+      "mean_educ": 12.93867708,
+      "ma_trend": 12.98184282,
+      "detrended": -0.04316574
+    },
+    {
+      "YOB": 38,
+      "QOB": 2,
+      "mean_educ": 13.00766329,
+      "ma_trend": 12.98158614,
+      "detrended": 0.02607715
+    },
+    {
+      "YOB": 38,
+      "QOB": 3,
+      "mean_educ": 12.98655426,
+      "ma_trend": 12.99486512,
+      "detrended": -0.00831086
+    },
+    {
+      "YOB": 38,
+      "QOB": 4,
+      "mean_educ": 13.03013161,
+      "ma_trend": 13.00265116,
+      "detrended": 0.02748045
+    },
+    {
+      "YOB": 39,
+      "QOB": 1,
+      "mean_educ": 13.00298851,
+      "ma_trend": 13.00483599,
+      "detrended": -0.00184749
+    },
+    {
+      "YOB": 39,
+      "QOB": 2,
+      "mean_educ": 13.01339858,
+      "ma_trend": 13.03472717,
+      "detrended": -0.02132859
+    },
+    {
+      "YOB": 39,
+      "QOB": 3,
+      "mean_educ": 12.98925953,
+      "ma_trend": 13.03807586,
+      "detrended": -0.04881633
+    },
+    {
+      "YOB": 39,
+      "QOB": 4,
+      "mean_educ": 13.11652902,
+      "ma_trend": 13.01940619,
+      "detrended": 0.09712282
+    },
+    {
+      "YOB": 40,
+      "QOB": 1,
+      "mean_educ": 13.01938732,
+      "ma_trend": 13.08013191,
+      "detrended": -0.06074459
+    },
+    {
+      "YOB": 40,
+      "QOB": 2,
+      "mean_educ": 13.05557935,
+      "ma_trend": 13.14015639,
+      "detrended": -0.08457703
+    },
+    {
+      "YOB": 40,
+      "QOB": 3,
+      "mean_educ": 13.15915975,
+      "ma_trend": 13.10950491,
+      "detrended": 0.04965484
+    },
+    {
+      "YOB": 40,
+      "QOB": 4,
+      "mean_educ": 13.26554947,
+      "ma_trend": 13.13524644,
+      "detrended": 0.13030303
+    },
+    {
+      "YOB": 41,
+      "QOB": 1,
+      "mean_educ": 13.09750348,
+      "ma_trend": 13.23038365,
+      "detrended": -0.13288017
+    },
+    {
+      "YOB": 41,
+      "QOB": 2,
+      "mean_educ": 13.22874317,
+      "ma_trend": 13.2296034,
+      "detrended": -0.00086023
+    },
+    {
+      "YOB": 41,
+      "QOB": 3,
+      "mean_educ": 13.26808222,
+      "ma_trend": 13.21082479,
+      "detrended": 0.05725743
+    },
+    {
+      "YOB": 41,
+      "QOB": 4,
+      "mean_educ": 13.28727842,
+      "ma_trend": 13.27995225,
+      "detrended": 0.00732617
+    },
+    {
+      "YOB": 42,
+      "QOB": 1,
+      "mean_educ": 13.22977409,
+      "ma_trend": 13.33088731,
+      "detrended": -0.10111322
+    },
+    {
+      "YOB": 42,
+      "QOB": 2,
+      "mean_educ": 13.39320952,
+      "ma_trend": 13.36164757,
+      "detrended": 0.03156195
+    },
+    {
+      "YOB": 42,
+      "QOB": 3,
+      "mean_educ": 13.37497908,
+      "ma_trend": 13.39991278,
+      "detrended": -0.0249337
+    },
+    {
+      "YOB": 42,
+      "QOB": 4,
+      "mean_educ": 13.55455868,
+      "ma_trend": 13.39669701,
+      "detrended": 0.15786167
+    },
+    {
+      "YOB": 43,
+      "QOB": 1,
+      "mean_educ": 13.42210884,
+      "ma_trend": 13.44769385,
+      "detrended": -0.025585
+    },
+    {
+      "YOB": 43,
+      "QOB": 2,
+      "mean_educ": 13.39649061,
+      "ma_trend": 13.48086933,
+      "detrended": -0.08437872
+    },
+    {
+      "YOB": 43,
+      "QOB": 3,
+      "mean_educ": 13.46474702,
+      "ma_trend": 13.43484164,
+      "detrended": 0.02990537
+    },
+    {
+      "YOB": 43,
+      "QOB": 4,
+      "mean_educ": 13.48206278,
+      "ma_trend": 13.43469465,
+      "detrended": 0.04736813
+    },
+    {
+      "YOB": 44,
+      "QOB": 1,
+      "mean_educ": 13.43870435,
+      "ma_trend": 13.46587592,
+      "detrended": -0.02717157
+    },
+    {
+      "YOB": 44,
+      "QOB": 2,
+      "mean_educ": 13.43883661,
+      "ma_trend": 13.48661494,
+      "detrended": -0.04777833
+    },
+    {
+      "YOB": 44,
+      "QOB": 3,
+      "mean_educ": 13.47785726,
+      "ma_trend": 13.48942593,
+      "detrended": -0.01156867
+    },
+    {
+      "YOB": 44,
+      "QOB": 4,
+      "mean_educ": 13.54783538,
+      "ma_trend": 13.52881315,
+      "detrended": 0.01902223
+    },
+    {
+      "YOB": 45,
+      "QOB": 1,
+      "mean_educ": 13.53232739,
+      "ma_trend": 13.58566022,
+      "detrended": -0.05333283
+    },
+    {
+      "YOB": 45,
+      "QOB": 2,
+      "mean_educ": 13.66623134,
+      "ma_trend": 13.58455709,
+      "detrended": 0.08167425
+    },
+    {
+      "YOB": 45,
+      "QOB": 3,
+      "mean_educ": 13.65071689,
+      "ma_trend": 13.60571148,
+      "detrended": 0.04500541
+    },
+    {
+      "YOB": 45,
+      "QOB": 4,
+      "mean_educ": 13.6073487,
+      "ma_trend": 13.65573487,
+      "detrended": -0.04838616
+    },
+    {
+      "YOB": 46,
+      "QOB": 1,
+      "mean_educ": 13.61693847,
+      "ma_trend": 13.68375324,
+      "detrended": -0.06681477
+    },
+    {
+      "YOB": 46,
+      "QOB": 2,
+      "mean_educ": 13.68905276,
+      "ma_trend": 13.71792471,
+      "detrended": -0.02887195
+    },
+    {
+      "YOB": 46,
+      "QOB": 3,
+      "mean_educ": 13.7878946,
+      "ma_trend": 13.74053228,
+      "detrended": 0.04736232
+    },
+    {
+      "YOB": 46,
+      "QOB": 4,
+      "mean_educ": 13.85951707,
+      "ma_trend": 13.7895936,
+      "detrended": 0.06992347
+    },
+    {
+      "YOB": 47,
+      "QOB": 1,
+      "mean_educ": 13.79662082,
+      "ma_trend": 13.83223082,
+      "detrended": -0.03561001
+    },
+    {
+      "YOB": 47,
+      "QOB": 2,
+      "mean_educ": 13.88480622,
+      "ma_trend": 13.80644433,
+      "detrended": 0.0783619
+    },
+    {
+      "YOB": 47,
+      "QOB": 3,
+      "mean_educ": 13.7967054,
+      "ma_trend": 13.79905165,
+      "detrended": -0.00234625
+    },
+    {
+      "YOB": 47,
+      "QOB": 4,
+      "mean_educ": 13.77293401,
+      "ma_trend": 13.80852638,
+      "detrended": -0.03559237
+    },
+    {
+      "YOB": 48,
+      "QOB": 1,
+      "mean_educ": 13.74184555,
+      "ma_trend": 13.78605001,
+      "detrended": -0.04420445
+    },
+    {
+      "YOB": 48,
+      "QOB": 2,
+      "mean_educ": 13.81074836,
+      "ma_trend": 13.76290097,
+      "detrended": 0.0478474
+    },
+    {
+      "YOB": 48,
+      "QOB": 3,
+      "mean_educ": 13.76381224,
+      "ma_trend": 13.77591321,
+      "detrended": -0.01210096
+    },
+    {
+      "YOB": 48,
+      "QOB": 4,
+      "mean_educ": 13.77301205,
+      "ma_trend": 13.77542726,
+      "detrended": -0.00241521
+    },
+    {
+      "YOB": 49,
+      "QOB": 1,
+      "mean_educ": 13.77804687,
+      "ma_trend": 13.76143221,
+      "detrended": 0.01661466
+    },
+    {
+      "YOB": 49,
+      "QOB": 2,
+      "mean_educ": 13.74910158,
+      "ma_trend": 13.76387249,
+      "detrended": -0.01477092
+    },
+    {
+      "YOB": 49,
+      "QOB": 3,
+      "mean_educ": 13.75980296
+    },
+    {
+      "YOB": 49,
+      "QOB": 4,
+      "mean_educ": 13.7446281
+    }
+  ],
+  "fig4_q1_below_ma": {
+    "count": 18,
+    "total": 19
+  },
+  "fig5_mean_lwklywge_by_yob_qob": [
+    {
+      "YOB": 30,
+      "QOB": 1,
+      "mean_lwklywge": 5.88913334,
+      "N": 8395
+    },
+    {
+      "YOB": 30,
+      "QOB": 2,
+      "mean_lwklywge": 5.89800652,
+      "N": 8396
+    },
+    {
+      "YOB": 30,
+      "QOB": 3,
+      "mean_lwklywge": 5.90936523,
+      "N": 8722
+    },
+    {
+      "YOB": 30,
+      "QOB": 4,
+      "mean_lwklywge": 5.91435443,
+      "N": 8089
+    },
+    {
+      "YOB": 31,
+      "QOB": 1,
+      "mean_lwklywge": 5.90213611,
+      "N": 7642
+    },
+    {
+      "YOB": 31,
+      "QOB": 2,
+      "mean_lwklywge": 5.90050756,
+      "N": 7634
+    },
+    {
+      "YOB": 31,
+      "QOB": 3,
+      "mean_lwklywge": 5.91118434,
+      "N": 7980
+    },
+    {
+      "YOB": 31,
+      "QOB": 4,
+      "mean_lwklywge": 5.91058743,
+      "N": 7327
+    },
+    {
+      "YOB": 32,
+      "QOB": 1,
+      "mean_lwklywge": 5.89980922,
+      "N": 8252
+    },
+    {
+      "YOB": 32,
+      "QOB": 2,
+      "mean_lwklywge": 5.90054267,
+      "N": 7751
+    },
+    {
+      "YOB": 32,
+      "QOB": 3,
+      "mean_lwklywge": 5.91027147,
+      "N": 8311
+    },
+    {
+      "YOB": 32,
+      "QOB": 4,
+      "mean_lwklywge": 5.89055327,
+      "N": 7897
+    },
+    {
+      "YOB": 33,
+      "QOB": 1,
+      "mean_lwklywge": 5.89194603,
+      "N": 7818
+    },
+    {
+      "YOB": 33,
+      "QOB": 2,
+      "mean_lwklywge": 5.90049191,
+      "N": 7572
+    },
+    {
+      "YOB": 33,
+      "QOB": 3,
+      "mean_lwklywge": 5.91150264,
+      "N": 7718
+    },
+    {
+      "YOB": 33,
+      "QOB": 4,
+      "mean_lwklywge": 5.90294713,
+      "N": 7643
+    },
+    {
+      "YOB": 34,
+      "QOB": 1,
+      "mean_lwklywge": 5.89515709,
+      "N": 7782
+    },
+    {
+      "YOB": 34,
+      "QOB": 2,
+      "mean_lwklywge": 5.89241138,
+      "N": 7591
+    },
+    {
+      "YOB": 34,
+      "QOB": 3,
+      "mean_lwklywge": 5.90608864,
+      "N": 8474
+    },
+    {
+      "YOB": 34,
+      "QOB": 4,
+      "mean_lwklywge": 5.90758206,
+      "N": 8069
+    },
+    {
+      "YOB": 35,
+      "QOB": 1,
+      "mean_lwklywge": 5.8798432,
+      "N": 7995
+    },
+    {
+      "YOB": 35,
+      "QOB": 2,
+      "mean_lwklywge": 5.88664247,
+      "N": 8002
+    },
+    {
+      "YOB": 35,
+      "QOB": 3,
+      "mean_lwklywge": 5.9083982,
+      "N": 8792
+    },
+    {
+      "YOB": 35,
+      "QOB": 4,
+      "mean_lwklywge": 5.8962564,
+      "N": 7984
+    },
+    {
+      "YOB": 36,
+      "QOB": 1,
+      "mean_lwklywge": 5.8849375,
+      "N": 8192
+    },
+    {
+      "YOB": 36,
+      "QOB": 2,
+      "mean_lwklywge": 5.88667229,
+      "N": 7945
+    },
+    {
+      "YOB": 36,
+      "QOB": 3,
+      "mean_lwklywge": 5.91182784,
+      "N": 8579
+    },
+    {
+      "YOB": 36,
+      "QOB": 4,
+      "mean_lwklywge": 5.90951829,
+      "N": 7960
+    },
+    {
+      "YOB": 37,
+      "QOB": 1,
+      "mean_lwklywge": 5.89304458,
+      "N": 8187
+    },
+    {
+      "YOB": 37,
+      "QOB": 2,
+      "mean_lwklywge": 5.88809197,
+      "N": 8182
+    },
+    {
+      "YOB": 37,
+      "QOB": 3,
+      "mean_lwklywge": 5.90613273,
+      "N": 9226
+    },
+    {
+      "YOB": 37,
+      "QOB": 4,
+      "mean_lwklywge": 5.9031917,
+      "N": 8374
+    },
+    {
+      "YOB": 38,
+      "QOB": 1,
+      "mean_lwklywge": 5.89438025,
+      "N": 8708
+    },
+    {
+      "YOB": 38,
+      "QOB": 2,
+      "mean_lwklywge": 5.9049688,
+      "N": 8482
+    },
+    {
+      "YOB": 38,
+      "QOB": 3,
+      "mean_lwklywge": 5.90587083,
+      "N": 9371
+    },
+    {
+      "YOB": 38,
+      "QOB": 4,
+      "mean_lwklywge": 5.91003695,
+      "N": 8662
+    },
+    {
+      "YOB": 39,
+      "QOB": 1,
+      "mean_lwklywge": 5.88634299,
+      "N": 8700
+    },
+    {
+      "YOB": 39,
+      "QOB": 2,
+      "mean_lwklywge": 5.90243932,
+      "N": 8583
+    },
+    {
+      "YOB": 39,
+      "QOB": 3,
+      "mean_lwklywge": 5.88789911,
+      "N": 9683
+    },
+    {
+      "YOB": 39,
+      "QOB": 4,
+      "mean_lwklywge": 5.90551994,
+      "N": 8839
+    },
+    {
+      "YOB": 40,
+      "QOB": 1,
+      "mean_lwklywge": 5.87008943,
+      "N": 9336
+    },
+    {
+      "YOB": 40,
+      "QOB": 2,
+      "mean_lwklywge": 5.87781478,
+      "N": 9338
+    },
+    {
+      "YOB": 40,
+      "QOB": 3,
+      "mean_lwklywge": 5.88950428,
+      "N": 10235
+    },
+    {
+      "YOB": 40,
+      "QOB": 4,
+      "mean_lwklywge": 5.89166588,
+      "N": 9309
+    },
+    {
+      "YOB": 41,
+      "QOB": 1,
+      "mean_lwklywge": 5.86662758,
+      "N": 9333
+    },
+    {
+      "YOB": 41,
+      "QOB": 2,
+      "mean_lwklywge": 5.88919805,
+      "N": 9150
+    },
+    {
+      "YOB": 41,
+      "QOB": 3,
+      "mean_lwklywge": 5.87359804,
+      "N": 10314
+    },
+    {
+      "YOB": 41,
+      "QOB": 4,
+      "mean_lwklywge": 5.88935686,
+      "N": 9590
+    },
+    {
+      "YOB": 42,
+      "QOB": 1,
+      "mean_lwklywge": 5.86631336,
+      "N": 10358
+    },
+    {
+      "YOB": 42,
+      "QOB": 2,
+      "mean_lwklywge": 5.87221862,
+      "N": 10338
+    },
+    {
+      "YOB": 42,
+      "QOB": 3,
+      "mean_lwklywge": 5.87374501,
+      "N": 11950
+    },
+    {
+      "YOB": 42,
+      "QOB": 4,
+      "mean_lwklywge": 5.89592041,
+      "N": 12372
+    },
+    {
+      "YOB": 43,
+      "QOB": 1,
+      "mean_lwklywge": 5.88412907,
+      "N": 11760
+    },
+    {
+      "YOB": 43,
+      "QOB": 2,
+      "mean_lwklywge": 5.85907156,
+      "N": 11284
+    },
+    {
+      "YOB": 43,
+      "QOB": 3,
+      "mean_lwklywge": 5.87604649,
+      "N": 12155
+    },
+    {
+      "YOB": 43,
+      "QOB": 4,
+      "mean_lwklywge": 5.85193424,
+      "N": 11150
+    },
+    {
+      "YOB": 44,
+      "QOB": 1,
+      "mean_lwklywge": 5.83567217,
+      "N": 10898
+    },
+    {
+      "YOB": 44,
+      "QOB": 2,
+      "mean_lwklywge": 5.8400919,
+      "N": 10521
+    },
+    {
+      "YOB": 44,
+      "QOB": 3,
+      "mean_lwklywge": 5.83419271,
+      "N": 11742
+    },
+    {
+      "YOB": 44,
+      "QOB": 4,
+      "mean_lwklywge": 5.82544671,
+      "N": 11226
+    },
+    {
+      "YOB": 45,
+      "QOB": 1,
+      "mean_lwklywge": 5.80754098,
+      "N": 10935
+    },
+    {
+      "YOB": 45,
+      "QOB": 2,
+      "mean_lwklywge": 5.82237963,
+      "N": 10720
+    },
+    {
+      "YOB": 45,
+      "QOB": 3,
+      "mean_lwklywge": 5.82523319,
+      "N": 11787
+    },
+    {
+      "YOB": 45,
+      "QOB": 4,
+      "mean_lwklywge": 5.79740065,
+      "N": 11104
+    },
+    {
+      "YOB": 46,
+      "QOB": 1,
+      "mean_lwklywge": 5.79080895,
+      "N": 10792
+    },
+    {
+      "YOB": 46,
+      "QOB": 2,
+      "mean_lwklywge": 5.78983013,
+      "N": 11391
+    },
+    {
+      "YOB": 46,
+      "QOB": 3,
+      "mean_lwklywge": 5.79548178,
+      "N": 15332
+    },
+    {
+      "YOB": 46,
+      "QOB": 4,
+      "mean_lwklywge": 5.77851383,
+      "N": 16607
+    },
+    {
+      "YOB": 47,
+      "QOB": 1,
+      "mean_lwklywge": 5.76126537,
+      "N": 15921
+    },
+    {
+      "YOB": 47,
+      "QOB": 2,
+      "mean_lwklywge": 5.76216279,
+      "N": 14914
+    },
+    {
+      "YOB": 47,
+      "QOB": 3,
+      "mean_lwklywge": 5.75747998,
+      "N": 15662
+    },
+    {
+      "YOB": 47,
+      "QOB": 4,
+      "mean_lwklywge": 5.74156583,
+      "N": 14291
+    },
+    {
+      "YOB": 48,
+      "QOB": 1,
+      "mean_lwklywge": 5.7115005,
+      "N": 14348
+    },
+    {
+      "YOB": 48,
+      "QOB": 2,
+      "mean_lwklywge": 5.7173125,
+      "N": 13416
+    },
+    {
+      "YOB": 48,
+      "QOB": 3,
+      "mean_lwklywge": 5.71328993,
+      "N": 15403
+    },
+    {
+      "YOB": 48,
+      "QOB": 4,
+      "mean_lwklywge": 5.69315416,
+      "N": 14525
+    },
+    {
+      "YOB": 49,
+      "QOB": 1,
+      "mean_lwklywge": 5.68143508,
+      "N": 14039
+    },
+    {
+      "YOB": 49,
+      "QOB": 2,
+      "mean_lwklywge": 5.66990606,
+      "N": 13635
+    },
+    {
+      "YOB": 49,
+      "QOB": 3,
+      "mean_lwklywge": 5.66799219,
+      "N": 15225
+    },
+    {
+      "YOB": 49,
+      "QOB": 4,
+      "mean_lwklywge": 5.65178279,
+      "N": 14520
+    }
+  ],
+  "fig5_age_earnings_slope": {
+    "younger_1940_49": -0.02423708,
+    "older_1930_39": -0.00067625
+  },
+  "fig5_q1_vs_rest_wage": {
+    "q1": 5.83638157,
+    "q2_4": 5.83961137,
+    "diff": -0.0032298
+  }
+}

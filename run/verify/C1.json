@@ -1,0 +1,25 @@
+{
+  "claim_id": "C1",
+  "status": "match",
+  "structured": {
+    "replicated_value": {
+      "OLS_return": 0.0802,
+      "TSLS_return": 0.0769
+    },
+    "paper_value": {
+      "OLS_return": 0.08,
+      "TSLS_return": 0.075
+    },
+    "uncertainty": null,
+    "value_found": true
+  },
+  "rationale": "The headline result reproduces cleanly. From outputs/table4.json (Table IV, 1970 Census, men born 1920-1929, n=247,199), the OLS return to education (col1) is 0.08016 and the TSLS return with EDUC instrumented by the 30 QOB-by-YOB interactions (col2) is 0.07686 with the overid dof (29) matching the design \u2014 essentially identical to the paper's Table IV col 2 = 0.0769. Against the claim's paper_value, the OLS return (0.0802 vs 0.08) is 0.2% relative error and the TSLS return (0.0769 vs 0.075) is 2.5% relative error, both inside the 5% match band, and the two estimates are 'hardly different' from each other (0.077 vs 0.080) exactly as claimed. This is corroborated by outputs/table3.json: Panel A (1970/1920-29) Wald return = 0.0715 with OLS = 0.0801 (matching the paper's cited 0.072 Wald), and Panel B (1980/1930-39) Wald = 0.1020, both in the 0.07-0.10 neighborhood; and by outputs/table5.json col2 TSLS = 0.0891 with col1 OLS = 0.0711. The fix_severity.json records only a single 'major' fix \u2014 a faithful Stata-to-R language port (reg->lm, ivregress 2sls->AER::ivreg) driven by toolchain availability, with no methodological change (critical_count=0) \u2014 so the produced IV estimate faithfully reflects the paper's method.",
+  "evidence_refs": [
+    "output/replication/codebase/outputs/table4.json",
+    "output/replication/codebase/outputs/table3.json",
+    "output/replication/codebase/outputs/table5.json",
+    "output/assess/fix_severity.json",
+    "output/analyze/replication_plan.json"
+  ],
+  "graded_by": "agent"
+}
