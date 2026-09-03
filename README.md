@@ -34,3 +34,11 @@ Replication scores measure whether claims reproduce under our agents' effort,
 not whether authors did anything wrong. Read the referee report's Notes and
 the per-claim verdicts in `run/verify/verdicts.json` before quoting any
 number.
+
+## Data sources for the extension studies
+
+The extension studies pulled fresh public data on August 23 and 24, 2026. In full:
+
+- U.S. Census Bureau, American Community Survey 1-Year Public Use Microdata Sample (PUMS), person records, 2005 to 2019 and 2021 to 2024, downloaded from census.gov (there is no standard 2020 1-Year PUMS). The living update used all 19 years; the theory update re-extracted nine benchmark years.
+- Angrist and Krueger's quarter-of-birth census extracts (NEW7080.dta, the 1970 and 1980 Census samples, archive file dated 2008), from the Angrist Data Archive at MIT Economics, reused for the modern weak-instrument re-analysis.
+- Printed values from the published paper (Tables I to III and the enrollment rates for 1960 to 1980) anchor the historical points.
